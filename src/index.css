@@ -1,8 +1,37 @@
 @layer reset, base, tokens, recipes, utilities;
 
+@font-face {
+  font-family: 'nanumsquare';
+  src: url('./fonts/NanumSquareR.ttf');
+}
+
+@font-face {
+  font-family: 'nanumsquare-light';
+  src: url('./fonts/NanumSquareL.ttf');
+}
+
+@font-face {
+  font-family: 'nanumsquare-bold';
+  src: url('./fonts/NanumSquareB.ttf');
+}
+
+@font-face {
+  font-family: 'nanumsquare-extra';
+  src: url('./fonts/NanumSquareEB.ttf');
+}
+
+:root {
+  --font-nanumsquare: 'nanumsquare';
+  --font-nanumsquare-light: 'nanumsquare-light';
+  --font-nanumsquare-bold: 'nanumsquare-bold';
+  --font-nanumsquare-extra: 'nanumsquare-extra';
+}
+
 html {
   font-size: 62.5%;
+  font-family: var(--font-nanumsquare);
 }
+
 body {
   font-size: 1.6rem;
 }

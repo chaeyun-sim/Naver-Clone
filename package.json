@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@pandacss/dev": "^0.28.0",
+    "@styled-system/css": "^5.1.5",
+    "@types/styled-system": "^5.1.22",
     "axios": "^1.6.7",
     "jotai": "^2.6.3",
     "prettier": "^3.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-query": "^3.39.3"
+    "react-query": "^3.39.3",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

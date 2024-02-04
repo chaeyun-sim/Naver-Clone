@@ -52,9 +52,6 @@ const textBox = css({
 const textStyle = css({
   lineHeight: '2.1rem',
   fontSize: '1.4rem',
-  fontFamily: 'var(--font-nanumsquare-regular)',
-  fontWeight: '600',
-  letterSpacing: '-0.04rem',
 });
 
 const editorBox = css({
@@ -73,7 +70,4 @@ const editorName = css({
   color: '#606060',
   fontSize: '1.3rem',
   lineHeight: '2rem',
-  fontFamily: 'var(--font-nanumsquare-regular)',
-  fontWeight: '600',
-  letterSpacing: '-0.04rem',
 });

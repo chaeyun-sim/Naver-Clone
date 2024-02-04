@@ -45,24 +45,19 @@ const image = css({
 });
 
 const categoryText = css({
-  fontFamily: 'var(--font-nanumsquare-bold)',
   fontSize: '1.3rem',
   lineHeight: '2rem',
   color: '#EBAA00',
 });
 
 const titleText = css({
-  fontFamily: 'var(--font-nanumsquare-regular',
-  fontWeight: '600',
   fontSize: '1.4rem',
   color: '#101010',
 });
 
 const descriptionText = css({
-  fontFamily: 'var(--font-nanumsquare-regular',
   marginTop: '0.4rem',
   fontSize: '1.3rem',
-  fontWeight: '600',
   color: '#101010',
 });
 
@@ -71,7 +66,4 @@ const dailyNews = css({
   marginTop: '0.4rem',
   lineHeight: '1.9rem',
   fontSize: '1.3rem',
-  fontFamily: 'var(--font-nanumsquare-regular',
-  fontWeight: '600',
-  letterSpacing: '-0.4rem',
 });

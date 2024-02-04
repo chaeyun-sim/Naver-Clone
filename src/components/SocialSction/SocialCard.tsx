@@ -34,9 +34,6 @@ const container = css({
   paddingBottom: '2rem',
   paddingLeft: '2rem',
   fontSize: '1.4rem',
-  fontFamily: 'var(--font-nanumsquare-regular)',
-  fontWeight: '500',
-  letterSpacing: '-0.04rem',
   color: '#101010',
   lineHeight: '1.7rem',
 });
@@ -52,10 +49,7 @@ const textStyle = css({
   overflow: 'hidden',
   lineHeight: '2rem',
   fontSize: '1.4rem',
-  letterSpacing: '-0.04rem',
   color: '#101010',
-  fontFamily: 'var(--font-nanumsquare-regular)',
-  fontWeight: '500',
 });
 
 const editorBox = css({
@@ -73,9 +67,6 @@ const profileImageStyle = css({
 });
 
 const editorStyle = css({
-  fontFamily: 'var(--font-nanumsquare-regular)',
-  fontWeight: '600',
   fontSize: '1.3rem',
-  letterSpacing: '-0.04rem',
   color: '#606060',
 });

@@ -5,16 +5,17 @@ interface Props {
   editorImage: string;
   editor: string;
   text: string;
+  noEditorImage?: boolean;
 }
 
-const HorizontalCard = ({ coverImage, editorImage, editor, text }: Props) => {
+const HorizontalCard = ({ coverImage, editorImage, editor, text, noEditorImage }: Props) => {
   return (
     <div className={container}>
       <img src={coverImage} className={image} />
       <div className={textBox}>
         <strong className={textStyle}>{text}</strong>
         <div className={editorBox}>
-          <img src={editorImage} className={profileImage} />
+          {noEditorImage && <img src={editorImage} className={profileImage} />}
           <span className={editorName}>{editor}</span>
         </div>
       </div>

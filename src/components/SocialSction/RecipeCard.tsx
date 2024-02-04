@@ -5,15 +5,28 @@ interface Props {
   category: string;
   title: string;
   description: string;
+  noDescription?: boolean;
+  newspaperName?: string;
 }
 
-const RecipeCard = ({ imageUrl, category, title, description }: Props) => {
+const RecipeCard = ({
+  imageUrl,
+  category,
+  title,
+  description,
+  noDescription,
+  newspaperName,
+}: Props) => {
   return (
     <div className={container}>
       <img src={imageUrl} className={image} />
-      <p className={categoryText}>{category}</p>
+      {!noDescription && <p className={categoryText}>{category}</p>}
       <p className={titleText}>{title}</p>
-      <p className={descriptionText}>{description}</p>
+      {noDescription ? (
+        <p className={dailyNews}>{newspaperName}</p>
+      ) : (
+        <p className={descriptionText}>{description}</p>
+      )}
     </div>
   );
 };
@@ -49,6 +62,16 @@ const descriptionText = css({
   fontFamily: 'var(--font-nanumsquare-regular',
   marginTop: '0.4rem',
   fontSize: '1.3rem',
-  fontWeight: '500',
+  fontWeight: '600',
   color: '#101010',
+});
+
+const dailyNews = css({
+  color: '#606060',
+  marginTop: '0.4rem',
+  lineHeight: '1.9rem',
+  fontSize: '1.3rem',
+  fontFamily: 'var(--font-nanumsquare-regular',
+  fontWeight: '600',
+  letterSpacing: '-0.4rem',
 });

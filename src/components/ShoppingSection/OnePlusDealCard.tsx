@@ -149,4 +149,5 @@ const discountBox = css({
 const discount = css({
   position: 'absolute',
   right: 2,
+  fontSize: '1.2rem',
 });

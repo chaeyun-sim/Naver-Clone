@@ -2,13 +2,14 @@ import { css } from '../../../styled-system/css';
 
 interface Props {
   icon: () => JSX.Element;
+  name: string;
 }
 
-const ServiceBox = ({ icon }: Props) => {
+const ServiceBox = ({ icon, name }: Props) => {
   return (
     <div className={container}>
       <div className={circle}>{icon()}</div>
-      <span className={name}>메일</span>
+      <span className={serviceName}>{name}</span>
     </div>
   );
 };
@@ -36,7 +37,7 @@ const circle = css({
   justifyContent: 'center',
 });
 
-const name = css({
+const serviceName = css({
   textAlign: 'center',
   fontSize: '1.4rem',
 });

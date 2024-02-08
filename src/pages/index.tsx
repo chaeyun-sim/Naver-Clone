@@ -27,6 +27,7 @@ const main = css({
   display: 'flex',
   gap: '3rem',
   marginBottom: '6rem',
+  marginTop: '4.3rem',
 });
 
 const sectionLeft = css({

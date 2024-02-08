@@ -34,15 +34,52 @@ const SubCategories = ({ currentCategory }: Props) => {
   }, [currentCategory]);
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      {categories.map((el, idx) => (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <a href="#" className={text}>
-            {el}
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        fontSize: '1.45rem',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {categories.map((el, idx) => (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <a href="#" className={text}>
+              {el}
+            </a>
+            {idx < categories.length - 1 && <div className={wideDot} />}
+          </div>
+        ))}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {currentCategory === 2 && (
+          <a href="#" className={home}>
+            연예홈
           </a>
-          {idx < categories.length - 1 && <div className={wideDot} />}
-        </div>
-      ))}
+        )}
+        {currentCategory === 3 && (
+          <>
+            <a href="#">커뮤니티</a>
+            <div className={divider}>.</div>
+            <a href="#" className={home}>
+              스포츠홈
+            </a>
+          </>
+        )}
+        {currentCategory === 4 && (
+          <>
+            <a href="#" className={home}>
+              증권홈
+            </a>
+            <div className={divider}>.</div>
+            <a href="#" className={home}>
+              부동산홈
+            </a>
+          </>
+        )}
+      </div>
     </div>
   );
 };
@@ -58,8 +95,20 @@ const wideDot = css({
 });
 
 const text = css({
-  '&:hover': {
-    textDecoration: 'underline',
-    textUnderlineOffset: '0.25rem',
-  },
+  fontWeight: '500',
+  fontSize: '1.5rem',
+});
+
+const home = css({
+  fontSize: '1.45rem',
+  fontWeight: '800',
+  color: '#101010',
+});
+
+const divider = css({
+  width: '0.1rem',
+  height: '1.2rem',
+  margin: '0 1.2rem',
+  backgroundColor: '#D3D5D7',
+  color: '#F5F7F8',
 });

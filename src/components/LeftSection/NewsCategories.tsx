@@ -16,9 +16,9 @@ const NewsCategories = ({ currentCategory }: Props) => {
 
       <div className={divider}>.</div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span>연합뉴스</span>
+        <a href="#">연합뉴스</a>
         <div className={dot} />
-        <span>의원 꿔주기, 지역구 나눠먹기…여야, ‘꼼수 위성정당’ 속도전</span>
+        <a href="#">의원 꿔주기, 지역구 나눠먹기…여야, ‘꼼수 위성정당’ 속도전</a>
       </div>
     </div>
   );

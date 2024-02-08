@@ -1,5 +1,6 @@
 import { css } from '../../../styled-system/css';
 import classnames from 'classnames';
+import { boldUnderline } from '../../styles/underline';
 
 interface Props {
   categories: string[];
@@ -10,7 +11,7 @@ interface Props {
 const Tabs = ({ categories, currentCategory, onChangeCurrentCategory }: Props) => {
   return (
     <div className={tabWrapper}>
-      {categories.map((category, index) => {
+      {categories.map((category: string, index: number) => {
         return (
           <>
             <div className={categoryBox}>
@@ -18,6 +19,7 @@ const Tabs = ({ categories, currentCategory, onChangeCurrentCategory }: Props) =
                 href="#"
                 className={classnames(
                   tabText,
+                  boldUnderline,
                   css({ color: currentCategory === index ? '#080808' : '#08080880' }),
                 )}
                 onClick={() => onChangeCurrentCategory(index)}
@@ -54,11 +56,6 @@ const tabText = css({
   fontFamily: 'var(--font-nanumsquare-extra)',
   fontSize: '1.6rem',
   letterSpacing: '-0.04rem',
-
-  '&:hover': {
-    textDecoration: 'underline',
-    textUnderlineOffset: '0.25rem',
-  },
 });
 
 const lineDivider = css({

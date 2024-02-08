@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { css } from '../../../styled-system/css';
+import { services } from '../../constants/services';
+import ServiceBox from '../base/ServiceBox';
 
 const Header = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -40,7 +42,11 @@ const Header = () => {
             <div className={searchIcon} />
           </div>
         </div>
-        <div className={serviceList}>service-list</div>
+        <div className={serviceList}>
+          {Object.keys(services).map((key) => (
+            <ServiceBox icon={() => <div style={{ ...services[key] }} />} name={key} />
+          ))}
+        </div>
       </div>
     </header>
   );
@@ -219,8 +225,9 @@ const searchIcon = css({
 });
 
 const serviceList = css({
-  marginTop: '1.2rem',
+  marginTop: '1.1rem',
   display: 'flex',
+  flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
 });

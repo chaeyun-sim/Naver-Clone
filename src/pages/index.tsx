@@ -1,4 +1,5 @@
 import { css } from '../../styled-system/css';
+import LeftSection from '../components/LeftSection/LeftSection';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
 
@@ -7,7 +8,9 @@ const Main = () => {
     <div className={container}>
       <Header />
       <main className={main}>
-        <section className={sectionLeft}>sec1</section>
+        <section className={sectionLeft}>
+          <LeftSection />
+        </section>
         <section className={sectionRight}>sec1</section>
       </main>
       <Footer />

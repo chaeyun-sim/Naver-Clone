@@ -14,7 +14,7 @@ const Layout = () => {
 export default Layout;
 
 const container = css({
-  maxWidth: '134rem',
+  width: '134rem',
   height: '100vh',
   margin: '0 auto',
 });

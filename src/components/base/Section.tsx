@@ -2,14 +2,13 @@ import React from 'react';
 import { css } from '../../../styled-system/css';
 
 interface Props {
-  height: string;
   children: React.ReactNode;
   style?: React.CSSProperties;
 }
 
-const Section = ({ height, children, style }: Props) => {
+const Section = ({ children, style }: Props) => {
   const section = css({
-    height,
+    height: '100%',
     width: '100%',
     border: '0.1px solid #EBEBEB',
     borderRadius: '0.8rem',

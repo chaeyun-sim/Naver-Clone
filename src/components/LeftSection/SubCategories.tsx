@@ -45,7 +45,7 @@ const SubCategories = ({ currentCategory }: Props) => {
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
         {categories.map((el, idx) => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div key={idx} style={{ display: 'flex', alignItems: 'center' }}>
             <a href="#" className={text}>
               {el}
             </a>

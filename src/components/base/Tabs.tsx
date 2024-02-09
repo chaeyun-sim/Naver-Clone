@@ -13,8 +13,8 @@ const Tabs = ({ categories, currentCategory, onChangeCurrentCategory }: Props) =
     <div className={tabWrapper}>
       {categories.map((category: string, index: number) => {
         return (
-          <>
-            <div className={categoryBox}>
+          <div key={index} className={categoryBox}>
+            <div>
               <a
                 href="#"
                 className={classnames(
@@ -31,7 +31,7 @@ const Tabs = ({ categories, currentCategory, onChangeCurrentCategory }: Props) =
             {category !== '뉴스스탠드' && index < categories.length - 1 && (
               <div className={lineDivider} />
             )}
-          </>
+          </div>
         );
       })}
     </div>
@@ -53,9 +53,9 @@ const categoryBox = css({
 });
 
 const tabText = css({
-  fontFamily: 'var(--font-nanumsquare-extra)',
-  fontSize: '1.6rem',
-  letterSpacing: '-0.04rem',
+  fontSize: '1.68rem',
+  fontWeight: '800',
+  marginTop: '0.1rem',
 });
 
 const lineDivider = css({
@@ -65,7 +65,7 @@ const lineDivider = css({
   height: '1.5rem',
   backgroundColor: '#d3d5d7',
   transform: 'skewX(-15deg)',
-  margin: '0 1.2rem',
+  margin: '0 1.24rem',
 });
 
 const dotDivider = css({

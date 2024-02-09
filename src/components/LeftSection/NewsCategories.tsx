@@ -1,5 +1,6 @@
 import { GoTriangleDown } from 'react-icons/go';
 import { css } from '../../../styled-system/css';
+import Dot from '../base/Dot';
 
 interface Props {
   currentCategory: number;
@@ -17,7 +18,7 @@ const NewsCategories = ({ currentCategory }: Props) => {
       <div className={divider}>.</div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <a href="#">연합뉴스</a>
-        <div className={dot} />
+        <Dot />
         <a href="#">의원 꿔주기, 지역구 나눠먹기…여야, ‘꼼수 위성정당’ 속도전</a>
       </div>
     </div>
@@ -38,12 +39,4 @@ const divider = css({
   margin: '0 1.2rem',
   backgroundColor: '#D3D5D7',
   color: '#F5F7F8',
-});
-
-const dot = css({
-  width: '0.3rem',
-  height: '0.3rem',
-  backgroundColor: '#d3d5d7',
-  borderRightRadius: '50%',
-  margin: '0 0.5rem',
 });

@@ -4,17 +4,40 @@ interface Props {
   categoryName: string;
   currentPage: number;
   totalPage: number;
+  onPressRight: () => void;
+  onPressLeft: () => void;
+  renderRightComponent?: () => JSX.Element;
 }
 
-const PageButton = ({ categoryName, currentPage, totalPage }: Props) => {
+const PageButton = ({
+  categoryName,
+  currentPage,
+  totalPage,
+  onPressRight,
+  onPressLeft,
+  renderRightComponent,
+}: Props) => {
+  const handleTextColor = () => {
+    if (['언론사', '다른 언론사 뉴스', '스포츠 소식'].includes(categoryName)) {
+      return '#3A67EA';
+    } else if (categoryName === '연애 소식') {
+      return '#E538E2';
+    } else if (categoryName === '경제 소식') {
+      return '#008f76';
+    }
+  };
+
   return (
     <div className={container}>
-      <button className={circle}>
+      <div />
+      <button className={circle} onClick={onPressLeft}>
         <div className={leftIcon} />
       </button>
       <div className={textBox}>
         <span className={seeMore}>
-          <span className={category}>{categoryName}</span>
+          <span className={category} style={{ color: handleTextColor() }}>
+            {categoryName}
+          </span>
           더보기
         </span>
         <span>
@@ -22,9 +45,10 @@ const PageButton = ({ categoryName, currentPage, totalPage }: Props) => {
           <span className={total}>/{totalPage}</span>
         </span>
       </div>
-      <button className={circle}>
+      <button className={circle} onClick={onPressRight}>
         <div className={rightIcon} />
       </button>
+      {renderRightComponent && <div>{renderRightComponent()}</div>}
     </div>
   );
 };
@@ -34,6 +58,7 @@ export default PageButton;
 const container = css({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
 });
 
 const circle = css({
@@ -49,6 +74,9 @@ const circle = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  '&:hover': {
+    boxShadow: '0 0.1rem 0.2rem 0 rgba(0,0,0,0.25)',
+  },
 });
 
 const leftIcon = css({
@@ -72,7 +100,7 @@ const textBox = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontSize: '1.4rem',
+  fontSize: '1.37rem',
   fontWeight: '700',
 });
 
@@ -83,7 +111,7 @@ const seeMore = css({
 
 const category = css({
   color: '#3A67EA',
-  paddingRight: '0.4rem',
+  paddingRight: '0.3rem',
 });
 
 const current = css({

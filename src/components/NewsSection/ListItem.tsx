@@ -36,6 +36,7 @@ const textStyle = css({
   textOverflow: 'ellipsis',
   width: '100%',
   marginRight: '0.5rem',
+  fontSize: '1.37rem',
 });
 
 const newspaper = css({

@@ -1,7 +1,7 @@
 import { css } from '../../styled-system/css';
-import LeftSection from '../components/LeftSection/LeftSection';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
+import LeftSection from './LeftSection';
 
 const Main = () => {
   return (

@@ -6,15 +6,16 @@ interface Props {
   editor: string;
   text: string;
   time: string;
+  hasMargin?: boolean;
 }
 
-const NewsCard = ({ coverImage, editor, text, time }: Props) => {
+const NewsCard = ({ coverImage, editor, text, time, hasMargin }: Props) => {
   const truncateText = () => {
     return text.length > 33 ? text.slice(0, 33) + '...' : text;
   };
 
   return (
-    <div className={container}>
+    <div className={container} style={{ marginTop: hasMargin ? '1.6rem' : 0 }}>
       <img src={coverImage} className={image} />
       <div className={textBox}>
         <strong className={textStyle}>{truncateText()}</strong>

@@ -1,37 +1,15 @@
-import { useState } from 'react';
 import { css } from '../../../styled-system/css';
-import { useEffect } from 'react';
+import { serviceUrl } from './News/constants/serviceUrl';
 
 interface Props {
   currentCategory: number;
+  categories: string[];
 }
 
-const SubCategories = ({ currentCategory }: Props) => {
-  const [categories, setCategories] = useState<string[]>([]);
-
-  useEffect(() => {
-    switch (currentCategory) {
-      case 2:
-        setCategories(['네이버TV', '시리즈온', 'VIBE']);
-        break;
-      case 3:
-        setCategories([
-          '야구',
-          '해외야구',
-          '아시안컵・축구',
-          '해외축구',
-          '농구',
-          '배구',
-          'N골프',
-          '일반',
-          'e스포츠',
-        ]);
-        break;
-      case 4:
-        setCategories(['국내증시', '해외증시', '시장지표', '관심종목']);
-        break;
-    }
-  }, [currentCategory]);
+const SubCategories = ({ currentCategory, categories }: Props) => {
+  const handleUrl = (text: string) => {
+    return serviceUrl[text];
+  };
 
   return (
     <div
@@ -46,7 +24,7 @@ const SubCategories = ({ currentCategory }: Props) => {
       <div style={{ display: 'flex', alignItems: 'center' }}>
         {categories.map((el, idx) => (
           <div key={idx} style={{ display: 'flex', alignItems: 'center' }}>
-            <a href="#" className={text}>
+            <a href={`${handleUrl(el)}`} className={text}>
               {el}
             </a>
             {idx < categories.length - 1 && <div className={wideDot} />}
@@ -55,26 +33,26 @@ const SubCategories = ({ currentCategory }: Props) => {
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         {currentCategory === 2 && (
-          <a href="#" className={home}>
+          <a href="https://entertain.naver.com/home" className={home}>
             연예홈
           </a>
         )}
         {currentCategory === 3 && (
           <>
-            <a href="#">커뮤니티</a>
+            <a href="https://m.sports.naver.com/community/index">커뮤니티</a>
             <div className={divider}>.</div>
-            <a href="#" className={home}>
+            <a href="https://sports.news.naver.com/index.nhn" className={home}>
               스포츠홈
             </a>
           </>
         )}
         {currentCategory === 4 && (
           <>
-            <a href="#" className={home}>
+            <a href="https://finance.naver.com/" className={home}>
               증권홈
             </a>
             <div className={divider}>.</div>
-            <a href="#" className={home}>
+            <a href="https://land.naver.com/" className={home}>
               부동산홈
             </a>
           </>

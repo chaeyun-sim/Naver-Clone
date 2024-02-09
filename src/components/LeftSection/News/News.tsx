@@ -82,10 +82,34 @@ const News = () => {
         />
       </div>
       <div className={categoriesBox}>
-        {[0, 1].includes(currentCategory) ? (
-          <NewsCategories currentCategory={currentCategory} />
-        ) : (
-          <SubCategories currentCategory={currentCategory} />
+        {[0, 1].includes(currentCategory) && <NewsCategories currentCategory={currentCategory} />}
+        {currentCategory === 2 && (
+          <SubCategories
+            currentCategory={currentCategory}
+            categories={['네이버TV', '시리즈온', 'VIBE']}
+          />
+        )}
+        {currentCategory === 3 && (
+          <SubCategories
+            currentCategory={currentCategory}
+            categories={[
+              '야구',
+              '해외야구',
+              '아시안컵・축구',
+              '해외축구',
+              '농구',
+              '배구',
+              'N골프',
+              '일반',
+              'e스포츠',
+            ]}
+          />
+        )}
+        {currentCategory === 4 && (
+          <SubCategories
+            currentCategory={currentCategory}
+            categories={['국내증시', '해외증시', '시장지표', '관심종목']}
+          />
         )}
       </div>
       <div className={content}>

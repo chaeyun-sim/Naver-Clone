@@ -7,7 +7,7 @@ interface Props {
   hasMargin?: boolean;
 }
 
-const NewsCard = ({ data, hasMargin }: Props) => {
+const DefaultNewsCard = ({ data, hasMargin }: Props) => {
   const { text, editor, time, image, url, videoTime } = data;
 
   const truncateText = () => {
@@ -44,7 +44,7 @@ const NewsCard = ({ data, hasMargin }: Props) => {
   );
 };
 
-export default NewsCard;
+export default DefaultNewsCard;
 
 const container = css({
   width: '38.5rem',

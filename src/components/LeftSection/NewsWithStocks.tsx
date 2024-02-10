@@ -1,6 +1,6 @@
 import { css } from '../../../styled-system/css';
 import { ImageCard, List } from './News/Entertainment';
-import NewsCard from '../NewsSection/NewsCard';
+import DefaultNewsCard from '../NewsSection/DefaultNewsCard';
 import ListItem from '../NewsSection/ListItem';
 
 interface Props {
@@ -14,12 +14,7 @@ const NewsWithStocks = ({ cardData, listData }: Props) => {
       <ul className={mainContents}>
         {cardData.map((data, index) => (
           <li key={index}>
-            <NewsCard
-              coverImage={data.image}
-              editor={data.editor}
-              text={data.text}
-              time={data.time}
-            />
+            <DefaultNewsCard data={data} />
           </li>
         ))}
       </ul>
@@ -32,7 +27,7 @@ const NewsWithStocks = ({ cardData, listData }: Props) => {
         <div className={list}>
           <ul>
             {listData.map((el, idx) => (
-              <ListItem key={idx} text={el.text} news={el.editor} isFirstItem={idx === 0} />
+              <ListItem key={idx} data={el} isFirstItem={idx === 0} />
             ))}
           </ul>
           <p className={todaysHeadline}>오늘의 경제 헤드라인입니다.</p>

@@ -1,4 +1,4 @@
-import NewsCard from '../NewsSection/NewsCard';
+import DefaultNewsCard from '../NewsSection/DefaultNewsCard';
 import ListItem from '../NewsSection/ListItem';
 import { css } from '../../../styled-system/css';
 import { ImageCard, List } from './News/Entertainment';
@@ -14,7 +14,7 @@ const NewsWithList = ({ cardData, listData }: Props) => {
       <ul className={mainContents}>
         {cardData.map((data, index) => (
           <li key={index}>
-            <NewsCard data={data} />
+            <DefaultNewsCard data={data} />
           </li>
         ))}
       </ul>

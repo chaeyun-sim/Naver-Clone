@@ -18,13 +18,13 @@ const PageButton = ({
   renderRightComponent,
 }: Props) => {
   const handleTextColor = () => {
-    if (['언론사', '다른 언론사 뉴스', '스포츠 소식'].includes(categoryName)) {
-      return '#3A67EA';
-    } else if (categoryName === '연애 소식') {
+    if (categoryName === '연예 소식') {
       return '#E538E2';
     } else if (categoryName === '경제 소식') {
       return '#008f76';
     }
+
+    return '#3A67EA';
   };
 
   return (

@@ -11,6 +11,7 @@ export type ImageCard = {
   url: string;
   isAd?: boolean;
   videoTime?: string;
+  playCount?: number;
 };
 
 export type List = {

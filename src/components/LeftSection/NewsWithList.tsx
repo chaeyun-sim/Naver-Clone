@@ -50,5 +50,5 @@ const mainContents = css({
 const listWrapper = css({
   width: '38.5rem',
   height: '100%',
-  marginTop: '1.65rem',
+  marginTop: '-0.4rem',
 });

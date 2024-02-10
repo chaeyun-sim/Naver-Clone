@@ -1,24 +1,36 @@
 import { css } from '../../../styled-system/css';
+import { ImageCard } from '../LeftSection/News/Entertainment';
 import Dot from '../base/Dot';
 
 interface Props {
-  coverImage: string;
-  editor: string;
-  text: string;
-  time: string;
+  data: ImageCard;
   hasMargin?: boolean;
 }
 
-const NewsCard = ({ coverImage, editor, text, time, hasMargin }: Props) => {
+const NewsCard = ({ data, hasMargin }: Props) => {
+  const { text, editor, time, image, url, videoTime } = data;
+
   const truncateText = () => {
     return text.length > 33 ? text.slice(0, 33) + '...' : text;
   };
 
   return (
     <div className={container} style={{ marginTop: hasMargin ? '1.6rem' : 0 }}>
-      <img src={coverImage} className={image} />
+      <div className={imageWrapper}>
+        <div className={imageBox}>
+          {videoTime && (
+            <div className={playBox}>
+              <div className={playIcon} />
+              <span className={playTime}>{videoTime}</span>
+            </div>
+          )}
+        </div>
+        <img src={image} className={imageStyle} />
+      </div>
       <div className={textBox}>
-        <strong className={textStyle}>{truncateText()}</strong>
+        <a href={url}>
+          <strong className={textStyle}>{truncateText()}</strong>
+        </a>
         <div className={subBox}>
           <div className={editorBox}>
             <span className={subtitle}>{editor}</span>
@@ -41,9 +53,20 @@ const container = css({
   flexDirection: 'row',
   gap: '1.6rem',
   alignItems: 'center',
+  cursor: 'pointer',
 });
 
-const image = css({
+const imageBox = css({
+  backgroundColor: 'rgba(0,0,0,0.09)',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: 0,
+});
+
+const imageStyle = css({
   borderRadius: '0.4rem',
   width: '18.5rem',
   height: '10.4rem',
@@ -54,8 +77,9 @@ const textBox = css({
   flexDirection: 'column',
   gap: '0.4rem',
   justifyContent: 'center',
-  width: '15.7rem',
+  width: '17rem',
   marginBottom: '0.2rem',
+  letterSpacing: '-0.04rem',
 });
 
 const textStyle = css({
@@ -64,10 +88,10 @@ const textStyle = css({
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   lineHeight: '2.1rem',
-  fontWeight: '500',
+  fontWeight: '600',
   width: '100%',
   height: '4.2rem',
-  fontSize: '1.5rem',
+  fontSize: '1.45rem',
   marginBottom: '0.2rem',
 });
 
@@ -90,4 +114,38 @@ const subtitle = css({
   color: '#606060',
   fontSize: '1.3rem',
   lineHeight: '2rem',
+});
+
+const playBox = css({
+  position: 'absolute',
+  bottom: 3,
+  right: 3,
+  color: 'white',
+  display: 'flex',
+  gap: '0.3rem',
+  alignItems: 'center',
+});
+
+const playIcon = css({
+  width: '1.4rem',
+  height: '1.8rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -148px -811px`,
+  zoom: '0.5',
+});
+
+const playTime = css({
+  fontSize: '1.2rem',
+  fontWeight: '700',
+});
+
+const imageWrapper = css({
+  position: 'relative',
+  overflow: 'hidden',
+  '& img': {
+    transition: 'transform 0.3s ease-in-out',
+  },
+  '&:hover img': {
+    transform: 'scale(1.1)',
+    transition: 'transform 0.3s ease-in-out',
+  },
 });

@@ -1,4 +1,5 @@
 import { css } from '../../../styled-system/css';
+import AdCard from '../NewsSection/AdCard';
 import NewsCard from '../NewsSection/NewsCard';
 import { ImageCard } from './News/Entertainment';
 
@@ -11,40 +12,16 @@ const NewsWithImages = ({ cardData }: Props) => {
     <div className={content}>
       <ul>
         <li>
-          <NewsCard
-            coverImage={cardData[0].image}
-            editor={cardData[0].editor}
-            text={cardData[0].text}
-            time={cardData[0].time}
-          />
+          <NewsCard data={cardData[0]} />
         </li>
-        <li>
-          <NewsCard
-            coverImage={cardData[1].image}
-            editor={cardData[1].editor}
-            text={cardData[1].text}
-            time={cardData[1].time}
-            hasMargin
-          />
-        </li>
+        <li>{cardData[1].isAd ? <AdCard /> : <NewsCard data={cardData[1]} hasMargin />}</li>
       </ul>
       <ul>
         <li>
-          <NewsCard
-            coverImage={cardData[2].image}
-            editor={cardData[2].editor}
-            text={cardData[2].text}
-            time={cardData[2].time}
-          />
+          <NewsCard data={cardData[2]} />
         </li>
         <li>
-          <NewsCard
-            coverImage={cardData[3].image}
-            editor={cardData[3].editor}
-            text={cardData[3].text}
-            time={cardData[3].time}
-            hasMargin
-          />
+          <NewsCard data={cardData[3]} hasMargin />
         </li>
       </ul>
     </div>

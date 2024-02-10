@@ -14,19 +14,14 @@ const NewsWithList = ({ cardData, listData }: Props) => {
       <ul className={mainContents}>
         {cardData.map((data, index) => (
           <li key={index}>
-            <NewsCard
-              coverImage={data.image}
-              editor={data.editor}
-              text={data.text}
-              time={data.time}
-            />
+            <NewsCard data={data} />
           </li>
         ))}
       </ul>
       <div className={listWrapper}>
         <ul>
           {listData.map((el, idx) => (
-            <ListItem key={idx} text={el.text} news={el.editor} isFirstItem={idx === 0} />
+            <ListItem key={idx} data={el} isFirstItem={idx === 0} />
           ))}
         </ul>
       </div>
@@ -55,4 +50,5 @@ const mainContents = css({
 const listWrapper = css({
   width: '38.5rem',
   height: '100%',
+  marginTop: '1.65rem',
 });

@@ -127,10 +127,12 @@ const playBox = css({
 });
 
 const playIcon = css({
-  width: '1.4rem',
-  height: '1.8rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -148px -811px`,
-  zoom: '0.5',
+  width: '0.7rem',
+  height: '1.0rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-327px -254px',
+  backgroundRepeat: 'no-repeat',
 });
 
 const playTime = css({

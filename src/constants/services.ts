@@ -3,6 +3,9 @@ interface ServiceStyle {
     width: string;
     height: string;
     background: string;
+    backgroundSize: string;
+    backgroundPosition: string;
+    backgroundRepeat?: string;
     zoom?: number;
     transform?: string;
     marginBottom?: string;
@@ -12,74 +15,92 @@ interface ServiceStyle {
 
 export const services: ServiceStyle = {
   메일: {
-    width: '6.7rem',
-    height: '7rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -508px -191px',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundPosition: '-250px -90px',
+    backgroundRepeat: 'no-repeat',
   },
   카페: {
-    width: '6.5rem',
-    height: '7rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -511px -11px',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundPosition: '-250px 0px',
+    backgroundRepeat: 'no-repeat',
   },
   블로그: {
-    width: '7.4rem',
-    height: '6.5rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -409px -211px',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundPosition: '-201px -98px',
+    backgroundRepeat: 'no-repeat',
   },
   쇼핑: {
-    width: '6.8rem',
-    height: '6.8rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -188px -431px',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '-90px -209px',
   },
   뉴스: {
-    width: '6.8rem',
-    height: '6.2rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -8px -434px',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '0px -209px',
   },
   증권: {
-    width: '7.1rem',
-    height: '5.9rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -367px -436px',
-    zoom: 1,
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '-180px -209px',
   },
   부동산: {
-    width: '6.8rem',
-    height: '7.5rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -99px -428px',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '-45px -209px',
   },
   지도: {
-    width: '9.3rem',
-    height: '8rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -413px -11px',
-    marginLeft: '1.9rem',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '-201px 0px',
   },
   웹툰: {
-    width: '6.8rem',
-    height: '6.8rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -458px -431px',
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '-225px -209px',
   },
   치지직: {
-    width: '8.5rem',
-    height: '9.5rem',
+    width: '4.4rem',
+    height: '4.4rem',
     background:
       'url(https://s.pstatic.net/static/www/mobile/edit/20240112_1095/upload_1705057885416AaxUM.png)',
-    // zoom: 0.9,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: '',
   },
   없음: {
-    width: '3.7rem',
-    height: '3.4rem',
-    background:
-      'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -641px -156px',
-    transform: 'rotate(90deg)',
-    zoom: 1.2,
+    width: '4.4rem',
+    height: '4.4rem',
+    background: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '444px 434px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '-520px -295px',
   },
 };

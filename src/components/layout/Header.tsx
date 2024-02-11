@@ -76,26 +76,30 @@ const items = css({
 });
 
 const menu = css({
-  width: '5rem',
-  height: '4rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -1px -672px`,
-  zoom: '0.5',
+  width: '2.6rem',
+  height: '2.6rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundPosition: '-314px -330px',
+  backgroundSize: '444px 434px',
   cursor: 'pointer',
 });
 
 const naverPay = css({
-  width: '6.4rem',
-  height: '6.4rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -590px -354px`,
-  zoom: '0.5',
+  width: '3.2rem',
+  height: '3.2rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-295px -177px',
+  backgroundRepeat: 'no-repeat',
   cursor: 'pointer',
 });
 
 const talk = css({
-  width: '5rem',
-  height: '5.2rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -217px -666px`,
-  zoom: '0.5',
+  width: '2.6rem',
+  height: '2.6rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-364px -81px',
   cursor: 'pointer',
 });
 
@@ -106,10 +110,11 @@ const noticeBox = css({
 });
 
 const notice = css({
-  width: '5.2rem',
-  height: '5rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -108px -667px`,
-  zoom: '0.5',
+  width: '2.6rem',
+  height: '2.6rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-364px -27px',
   cursor: 'pointer',
 });
 
@@ -166,10 +171,12 @@ const naverWrapper = css({
 });
 
 const naverIcon = css({
-  width: '4.8rem',
-  height: '4.8rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -50px -720px`,
-  zoom: '0.5',
+  width: '2.6rem',
+  height: '2.6rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-835px -1px',
+  marginTop: '0.5rem',
 });
 
 const keyboardButton = css({
@@ -182,10 +189,12 @@ const keyboardButton = css({
 });
 
 const keyboard = css({
-  width: '4.8rem',
-  height: '2.8rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -398px -508px`,
-  zoom: '0.5',
+  width: '2.4rem',
+  height: '1.4rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-199px -254px',
+  backgroundRepeat: 'no-repeat',
 });
 
 const moreInfoButton = css({
@@ -200,10 +209,12 @@ const moreInfoButton = css({
 });
 
 const moreInfo = css({
-  width: '1.8rem',
-  height: '1rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -205px -545px`,
-  zoom: '0.5',
+  width: '1rem',
+  height: '0.6rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-102px -272px',
+  backgroundRepeat: 'no-repeat',
 });
 
 const searchWrapper = css({
@@ -218,10 +229,11 @@ const searchWrapper = css({
 });
 
 const searchIcon = css({
-  width: '4.9rem',
-  height: '4.8rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -729px -372px`,
-  zoom: '0.5',
+  width: '2.8rem',
+  height: '2.6rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-805px -185px',
 });
 
 const serviceList = css({

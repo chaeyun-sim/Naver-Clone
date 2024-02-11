@@ -112,8 +112,9 @@ const noticeCircle = css({
 });
 
 const noticeIcon = css({
-  width: '2.8rem',
-  height: '2.7rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png) no-repeat -262px -75px`,
-  zoom: '0.5',
+  width: '1.4rem',
+  height: '1.4rem',
+  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
+  backgroundSize: '159px 137px',
+  backgroundRepeat: 'no-repeat',
 });

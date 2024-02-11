@@ -36,7 +36,8 @@ const NewsCategories = ({
           currentCategory === 1 ? setOpenNewsWidget(!openNewsWidget) : onClickSeeMore()
         }
       >
-        {currentCategory === 0 && seeSubscribed ? '구독언론사' : '전체언론사'}
+        {currentCategory === 0 && seeSubscribed && '구독언론사'}
+        {currentCategory === 0 && !seeSubscribed && '전체언론사'}
         {currentCategory === 1 && '분야별 뉴스'}
         {openNewsWidget || openAllNews ? <GoTriangleUp /> : <GoTriangleDown />}
       </span>

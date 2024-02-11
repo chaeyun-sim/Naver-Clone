@@ -5,11 +5,22 @@ import Dot from '../base/Dot';
 interface Props {
   data: List;
   isFirstItem?: boolean;
+  noMargin?: boolean;
 }
 
-const ListItem = ({ data, isFirstItem = false }: Props) => {
+const ListItem = ({ data, isFirstItem = false, noMargin = false }: Props) => {
+  const getMargin = () => {
+    if (isFirstItem) {
+      return 0;
+    } else if (noMargin) {
+      return '1.25rem';
+    } else {
+      return '1.7rem';
+    }
+  };
+
   return (
-    <li className={container} style={{ marginTop: isFirstItem ? 0 : '1.7rem' }}>
+    <li className={container} style={{ marginTop: getMargin() }}>
       <a href={data.url} className={urlStyle}>
         <span className={textStyle}>{data.text}</span>
       </a>

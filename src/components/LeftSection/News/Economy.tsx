@@ -1,7 +1,7 @@
 import { css } from '../../../../styled-system/css';
 import NewsWithImages from '../NewsWithImages';
 import NewsWithStocks from '../NewsWithStocks';
-import { cardData, listData } from './constants/sportsData';
+import { cardData, listData } from './constants/economyData';
 
 interface Props {
   page: number;

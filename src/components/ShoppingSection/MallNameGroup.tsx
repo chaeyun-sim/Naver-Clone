@@ -1,4 +1,5 @@
 import { css } from '../../../styled-system/css';
+import Dot from '../base/Dot';
 
 const MallNameGroup = () => {
   const malls = [
@@ -21,7 +22,7 @@ const MallNameGroup = () => {
                     <span className={name}>{item}</span>
                   )}
                 </div>
-                {index < data.length - 1 && <div className={dot} />}
+                {index < data.length - 1 && <Dot />}
               </>
             ))}
           </div>
@@ -45,14 +46,6 @@ const row = css({
   paddingBottom: '0.5rem',
   display: 'flex',
   flexDirection: 'row',
-});
-
-const dot = css({
-  margin: '0rem 0 0.6rem',
-  width: '0.3rem',
-  height: '0.3rem',
-  backgroundColor: '#D3D5D7',
-  borderRadius: '50%',
 });
 
 const box = css({

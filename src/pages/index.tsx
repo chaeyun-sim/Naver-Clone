@@ -1,13 +1,16 @@
 import { css } from '../../styled-system/css';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
+import LeftSection from './LeftSection';
 
 const Main = () => {
   return (
     <div className={container}>
       <Header />
       <main className={main}>
-        <section className={sectionLeft}>sec1</section>
+        <section className={sectionLeft}>
+          <LeftSection />
+        </section>
         <section className={sectionRight}>sec1</section>
       </main>
       <Footer />

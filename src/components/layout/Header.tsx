@@ -44,7 +44,7 @@ const Header = () => {
         </div>
         <div className={serviceList}>
           {Object.keys(services).map((key) => (
-            <ServiceBox icon={() => <div style={{ ...services[key] }} />} name={key} />
+            <ServiceBox key={key} icon={() => <div style={{ ...services[key] }} />} name={key} />
           ))}
         </div>
       </div>

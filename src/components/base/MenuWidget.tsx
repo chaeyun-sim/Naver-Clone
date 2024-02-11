@@ -67,13 +67,15 @@ const container = css({
 
 const triangleIcon = css({
   position: 'absolute',
-  top: '18.0rem',
-  left: '20.8rem',
+  top: '9.0rem',
+  left: '10.4rem',
   zIndex: 2,
-  width: '3.8rem',
-  height: '2.2rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -614px -508px`,
-  zoom: '0.5',
+  width: '1.9rem',
+  height: '1.1rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-307px -254px',
+  backgroundRepeat: 'no-repeat',
 });
 
 const seeMoreText = css({

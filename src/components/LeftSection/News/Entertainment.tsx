@@ -12,6 +12,8 @@ export type ImageCard = {
   isAd?: boolean;
   videoTime?: string;
   playCount?: number;
+  editorImage?: string;
+  editorUrl?: string;
 };
 
 export type List = {

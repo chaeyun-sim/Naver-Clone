@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import Section from '../../base/Section';
-import Tabs from '../../base/Tabs';
-import NewsCategories from '../NewsCategories';
-import SubCategories from '../SubCategories';
-import Entertainment from './Entertainment';
-import PageButton from '../../base/PageButton';
-import { css } from '../../../../styled-system/css';
-import Sports from './Sports';
-import Economy from './Economy';
+import Section from '../base/Section';
+import Tabs from '../base/Tabs';
+import NewsCategories from '../LeftSection/NewsCategories';
+import SubCategories from '../LeftSection/SubCategories';
+import Entertainment from '../LeftSection/News/Entertainment';
+import Sports from '../LeftSection/News/Sports';
+import Economy from '../LeftSection/News/Economy';
+import PageButton from '../base/PageButton';
+import { css } from '../../../styled-system/css';
+import Media from '../LeftSection/News/Media';
+import NewsStand from '../LeftSection/News/NewsStand';
 
 const categoryList = [
   {
@@ -16,7 +18,7 @@ const categoryList = [
   },
   {
     name: '다른 언론사 뉴스',
-    totalPage: 6,
+    totalPage: 4,
   },
   {
     name: '연예 소식',
@@ -35,6 +37,8 @@ const categoryList = [
 const News = () => {
   const [currentCategory, setCurrentCategory] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [openAllNews, setOpenAllNews] = useState<boolean>(false);
+  const [seeSubscribed, setSeeSubscribed] = useState<boolean>(false);
 
   const handlePressLeft = () => {
     if (currentPage > 1) {
@@ -76,13 +80,27 @@ const News = () => {
           currentCategory={currentCategory}
           onChangeCurrentCategory={(num) => setCurrentCategory(num)}
         />
-        <img
-          src="https://s.pstatic.net/static/www/mobile/edit/20240110_1095/upload_17048514254674MZPF.png"
-          className={newsTrend}
-        />
+        <a href="https://sports.news.naver.com/kfootball/index">
+          <img
+            src="https://s.pstatic.net/static/www/mobile/edit/20240110_1095/upload_17048514254674MZPF.png"
+            className={newsTrend}
+          />
+        </a>
       </div>
       <div className={categoriesBox}>
-        {[0, 1].includes(currentCategory) && <NewsCategories currentCategory={currentCategory} />}
+        {[0, 1].includes(currentCategory) && (
+          <NewsCategories
+            currentCategory={currentCategory}
+            openAllNews={openAllNews}
+            onClickSeeMore={() => setOpenAllNews(!openAllNews)}
+            initializeOpen={() => setOpenAllNews(false)}
+            seeSubscribed={seeSubscribed}
+            onSeeSubscribed={() => {
+              setSeeSubscribed(!seeSubscribed);
+              setOpenAllNews(false);
+            }}
+          />
+        )}
         {currentCategory === 2 && (
           <SubCategories
             currentCategory={currentCategory}
@@ -113,19 +131,23 @@ const News = () => {
         )}
       </div>
       <div className={content}>
+        {currentCategory === 0 && <NewsStand page={currentPage} seeSubscribed={seeSubscribed} />}
+        {currentCategory === 1 && <Media page={currentPage} />}
         {currentCategory === 2 && <Entertainment page={currentPage} />}
         {currentCategory === 3 && <Sports page={currentPage} />}
         {currentCategory === 4 && <Economy page={currentPage} />}
       </div>
-      <div className={bottom}>
-        <PageButton
-          categoryName={categoryList[currentCategory].name}
-          currentPage={currentPage}
-          totalPage={categoryList[currentCategory].totalPage}
-          onPressLeft={handlePressLeft}
-          onPressRight={handlePressRight}
-        />
-      </div>
+      {!seeSubscribed && (
+        <div className={bottom}>
+          <PageButton
+            categoryName={categoryList[currentCategory].name}
+            currentPage={currentPage}
+            totalPage={categoryList[currentCategory].totalPage}
+            onPressLeft={handlePressLeft}
+            onPressRight={handlePressRight}
+          />
+        </div>
+      )}
     </Section>
   );
 };

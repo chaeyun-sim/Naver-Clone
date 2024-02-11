@@ -85,31 +85,39 @@ const name = css({
 });
 
 const shopIcon = css({
-  width: '3.3rem',
-  height: '3.6rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -606px -106px`,
-  zoom: '0.5',
+  width: '3.2rem',
+  height: '3.2rem',
+  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
+  backgroundSize: '159px 137px',
+  backgroundRepeat: 'no-repeat',
+  transform: 'translate(-50%, -50%)',
 });
 
 const pointIcon = css({
-  width: '3.1rem',
-  height: '3.4rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png) no-repeat -153px -83px`,
-  zoom: '0.5',
+  width: '3.2rem',
+  height: '3.2rem',
+  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
+  backgroundSize: '159px 137px',
+  backgroundRepeat: 'no-repeat',
+  transform: 'translate(-50%, -50%)',
 });
 
 const truckIcon = css({
-  width: '3.4rem',
-  height: '2.7rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -606px -176px`,
-  zoom: '0.5',
+  width: '3.2rem',
+  height: '3.2rem',
+  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
+  backgroundSize: '159px 137px',
+  backgroundRepeat: 'no-repeat',
+  transform: 'translate(-50%, -50%)',
 });
 
 const bagIcon = css({
-  width: '3.3rem',
+  width: '3.2rem',
   height: '3.2rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png) no-repeat -39px -242px`,
-  zoom: '0.5',
+  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
+  backgroundSize: '159px 137px',
+  backgroundRepeat: 'no-repeat',
+  transform: 'translate(-50%, -50%)',
 });
 
 const badge = css({

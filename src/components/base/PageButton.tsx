@@ -80,18 +80,24 @@ const circle = css({
 });
 
 const leftIcon = css({
-  width: '1.5em',
-  height: '2.2rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -391px -809px`,
+  width: '1.0em',
+  height: '1.2rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundPosition: '-432px -246px',
+  backgroundSize: '444px 434px',
+  backgroundRepeat: 'no-repeat',
   transform: 'rotate(180deg)',
-  zoom: '0.5',
+  marginRight: '0.7rem',
 });
 
 const rightIcon = css({
-  width: '1.5em',
-  height: '2.2rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.2b26eb67.png) no-repeat -391px -809px`,
-  zoom: '0.5',
+  width: '1.0em',
+  height: '1.2rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundPosition: '-432px -246px',
+  backgroundSize: '444px 434px',
+  backgroundRepeat: 'no-repeat',
+  marginLeft: '0.7rem',
 });
 
 const textBox = css({

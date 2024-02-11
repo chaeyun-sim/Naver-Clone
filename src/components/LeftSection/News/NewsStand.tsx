@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import { css } from '../../../../styled-system/css';
+import { NewsList, newsList } from './constants/newslist';
+import { useEffect, useState } from 'react';
+import RenderRows from '../RenderRows';
 
 interface Props {
   page: number;
@@ -7,10 +10,35 @@ interface Props {
 }
 
 const NewsStand = ({ page, seeSubscribed }: Props) => {
+  const [newsImages, setNewsImages] = useState<NewsList[]>([]);
+
+  useEffect(() => {
+    let list = newsList;
+    let currentIndex = list.length,
+      temporaryValue,
+      randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = list[currentIndex];
+      list[currentIndex] = list[randomIndex];
+      list[randomIndex] = temporaryValue;
+    }
+
+    setNewsImages(list);
+  }, [page]);
+
   return (
     <div className={container}>
       {!seeSubscribed ? (
-        <div>asdf</div>
+        <div>
+          <RenderRows arr={newsImages.slice(0, 6)} />
+          <RenderRows arr={newsImages.slice(6, 12)} />
+          <RenderRows arr={newsImages.slice(12, 18)} />
+          <RenderRows arr={newsImages.slice(18, 24)} isLastLine />
+        </div>
       ) : (
         <div>
           <p className={title}>구독한 언론사가 없습니다.</p>

@@ -164,8 +164,10 @@ const subtitle = css({
 });
 
 const plusIcon = css({
-  width: '1.4rem',
-  height: '1.4rem',
-  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png) no-repeat -649px -473px`,
-  zoom: '0.5',
+  width: '1rem',
+  height: '0.8rem',
+  background: `url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)`,
+  backgroundSize: '444px 434px',
+  backgroundPosition: '-323px -236px',
+  backgroundRepeat: 'no-repeat',
 });

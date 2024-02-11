@@ -72,16 +72,6 @@ const imageWrapper = css({
   },
 });
 
-const imageBox = css({
-  backgroundColor: 'rgba(0,0,0,0.09)',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 0,
-});
-
 const imageStyle = css({
   borderRadius: '0.4rem',
   width: '100%',

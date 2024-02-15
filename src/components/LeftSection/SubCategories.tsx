@@ -1,4 +1,5 @@
 import { css } from '../../../styled-system/css';
+import Divider from '../base/Divider';
 import { serviceUrl } from './News/constants/serviceUrl';
 
 interface Props {
@@ -40,7 +41,7 @@ const SubCategories = ({ currentCategory, categories }: Props) => {
         {currentCategory === 3 && (
           <>
             <a href="https://m.sports.naver.com/community/index">커뮤니티</a>
-            <div className={divider}>.</div>
+            <Divider />
             <a href="https://sports.news.naver.com/index.nhn" className={home}>
               스포츠홈
             </a>
@@ -51,7 +52,7 @@ const SubCategories = ({ currentCategory, categories }: Props) => {
             <a href="https://finance.naver.com/" className={home}>
               증권홈
             </a>
-            <div className={divider}>.</div>
+            <Divider />
             <a href="https://land.naver.com/" className={home}>
               부동산홈
             </a>
@@ -81,12 +82,4 @@ const home = css({
   fontSize: '1.45rem',
   fontWeight: '800',
   color: '#101010',
-});
-
-const divider = css({
-  width: '0.1rem',
-  height: '1.2rem',
-  margin: '0 1.2rem',
-  backgroundColor: '#D3D5D7',
-  color: '#F5F7F8',
 });

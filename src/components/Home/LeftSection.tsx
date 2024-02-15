@@ -1,6 +1,6 @@
-import { css } from '../../styled-system/css';
-import News from '../components/NewsSection/News';
-import Section from '../components/base/Section';
+import { css } from '../../../styled-system/css';
+import News from '../NewsSection/News';
+import Section from '../base/Section';
 
 const LeftSection = () => {
   return (

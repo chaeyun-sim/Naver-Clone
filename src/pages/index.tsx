@@ -1,7 +1,8 @@
 import { css } from '../../styled-system/css';
+import LeftSection from '../components/Home/LeftSection';
+import RightSection from '../components/Home/RightSection';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
-import LeftSection from './LeftSection';
 
 const Main = () => {
   return (
@@ -11,7 +12,9 @@ const Main = () => {
         <section className={sectionLeft}>
           <LeftSection />
         </section>
-        <section className={sectionRight}>sec1</section>
+        <section className={sectionRight}>
+          <RightSection />
+        </section>
       </main>
       <Footer />
     </div>

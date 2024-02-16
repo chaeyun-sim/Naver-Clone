@@ -4,6 +4,7 @@ import Main from './pages';
 import FindId from './pages/Signup/FindId';
 import FindPassword from './pages/Signup/FindPassword';
 import SignupForm from './pages/Signup/SignupForm';
+import CheckPermission from './pages/Signup/CheckPermission';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         </Route>
         <Route path="/user2/help/idInquiry" element={<FindId />} />
         <Route path="/user2/help/pwInquiry" element={<FindPassword />} />
-        <Route path="/user2/join/agree" element={<SignupForm />} />
+        <Route path="/user2/join/agree" element={<CheckPermission />} />
+        <Route path="/user2/join/begin" element={<SignupForm />} />
       </Routes>
     </BrowserRouter>
   );

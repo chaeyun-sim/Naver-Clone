@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { css } from '../../../styled-system/css';
 import { NewsList } from '../LeftSection/News/constants/newslist';
+import Divider from '../base/Divider';
 
 interface Props {
   data: NewsList;
@@ -34,7 +35,7 @@ const MediaLogoCard = ({ data, isLastLine, isLastItem }: Props) => {
           <a href="#" style={{ textDecorationColor: 'white' }}>
             <span className={subscribe}>구독</span>
           </a>
-          <div className={divider}>.</div>
+          <Divider />
           <a href={data.url} style={{ textDecorationColor: 'white' }}>
             <span className={seeNews}>기사보기</span>
           </a>
@@ -51,14 +52,6 @@ const container = css({
   height: '5.6rem',
   position: 'relative',
   cursor: 'pointer',
-});
-
-const divider = css({
-  width: '0.1rem',
-  height: '1.2rem',
-  margin: '0 1rem',
-  backgroundColor: 'rgba(255,255,255,.3)',
-  color: '#2868f2',
 });
 
 const content = css({

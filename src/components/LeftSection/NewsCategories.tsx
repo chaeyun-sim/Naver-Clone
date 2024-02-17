@@ -3,6 +3,7 @@ import { css } from '../../../styled-system/css';
 import Dot from '../base/Dot';
 import { useEffect, useState } from 'react';
 import MenuWidget from '../base/MenuWidget';
+import Divider from '../base/Divider';
 
 interface Props {
   currentCategory: number;
@@ -49,7 +50,7 @@ const NewsCategories = ({
           onSeeSubscribed={onSeeSubscribed}
         />
       )}
-      <div className={divider}>.</div>
+      <Divider />
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <a href="#">연합뉴스</a>
         <div style={{ margin: '0 0.5rem' }}>
@@ -73,12 +74,4 @@ const select = css({
     textUnderlineOffset: '0.15rem',
     textDecorationThickness: '0.1rem',
   },
-});
-
-const divider = css({
-  width: '0.1rem',
-  height: '1.2rem',
-  margin: '0 1.2rem',
-  backgroundColor: '#D3D5D7',
-  color: '#F5F7F8',
 });

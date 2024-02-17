@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { css } from '../../../styled-system/css';
-import TermsOfService from '../../components/CheckPermission/TermsOfService';
-import PrivacyPolicy from '../../components/CheckPermission/PrivacyPolicy';
-import { article, articleText } from '../../components/CheckPermission/style';
-import LocationBasedServices from '../../components/CheckPermission/LocationBasedServices';
 import { useNavigate } from 'react-router-dom';
+import TermsOfService from '../../components/Signup/CheckPermission/TermsOfService';
+import { article, articleText } from '../../components/Signup/CheckPermission/style';
+import LocationBasedServices from '../../components/Signup/CheckPermission/LocationBasedServices';
+import PrivacyPolicy from '../../components/Signup/CheckPermission/PrivacyPolicy';
 
 const CheckPermission = () => {
   const navigate = useNavigate();

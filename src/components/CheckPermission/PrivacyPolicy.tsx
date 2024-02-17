@@ -1,12 +1,5 @@
 import { article, articleText, articleTitle } from './style';
 
-const data = [
-  '1. 수집하는 개인정보',
-  '2. 수집한 개인정보의 이용',
-  '3. 개인정보의 보관기간',
-  '4. 개인정보 수집 및 이용 동의를 거부할 권리',
-];
-
 const PrivacyPolicy = () => {
   return (
     <>

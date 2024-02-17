@@ -76,7 +76,7 @@ const CheckPermission = () => {
                     setAllChecked(!allChecked);
                   }}
                 >
-                  <span className={title}>{language === 1 && '전체 동의하기'}</span>
+                  <span className={title}>{language === 0 && '전체 동의하기'}</span>
                 </label>
               </div>
             </div>
@@ -97,7 +97,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option(true)}>[필수]</em>
                       <div className={textWrap}>
-                        <span className={text}>{language === 1 && '네이버 이용약관'}</span>
+                        <span className={text}>{language === 0 && '네이버 이용약관'}</span>
                       </div>
                     </div>
                   </label>
@@ -119,7 +119,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option(true)}>[필수]</em>
                       <div className={textWrap}>
-                        <span className={text}>{language === 1 && '개인정보 수집 및 이용'}</span>
+                        <span className={text}>{language === 0 && '개인정보 수집 및 이용'}</span>
                       </div>
                     </div>
                   </label>
@@ -142,7 +142,7 @@ const CheckPermission = () => {
                       <em className={option()}>[선택]</em>
                       <div className={textWrap}>
                         <span className={text}>
-                          {language === 1 && '실명 인증된 아이디로 가입'}
+                          {language === 0 && '실명 인증된 아이디로 가입'}
                         </span>
                       </div>
                     </div>
@@ -169,7 +169,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option()}>[선택]</em>
                       <div className={textWrap}>
-                        <span className={text}>{language === 1 && '위치기반서비스 이용약관'}</span>
+                        <span className={text}>{language === 0 && '위치기반서비스 이용약관'}</span>
                       </div>
                     </div>
                   </label>
@@ -190,7 +190,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option()}>[선택]</em>
                       <div className={textWrap}>
-                        <span className={text}>{language === 1 && '개인정보 수집 및 이용'}</span>
+                        <span className={text}>{language === 0 && '개인정보 수집 및 이용'}</span>
                       </div>
                     </div>
                   </label>

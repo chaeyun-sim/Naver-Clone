@@ -4,8 +4,10 @@ import TermsOfService from '../../components/CheckPermission/TermsOfService';
 import PrivacyPolicy from '../../components/CheckPermission/PrivacyPolicy';
 import { article, articleText } from '../../components/CheckPermission/style';
 import LocationBasedServices from '../../components/CheckPermission/LocationBasedServices';
+import { useNavigate } from 'react-router-dom';
 
 const CheckPermission = () => {
+  const navigate = useNavigate();
   const [language, setLanguage] = useState<number>(0);
   const [checked, setChecked] = useState({
     이용약관: false,
@@ -74,7 +76,7 @@ const CheckPermission = () => {
                     setAllChecked(!allChecked);
                   }}
                 >
-                  <span className={title}>전체 동의하기</span>
+                  <span className={title}>{language === 1 && '전체 동의하기'}</span>
                 </label>
               </div>
             </div>
@@ -95,7 +97,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option(true)}>[필수]</em>
                       <div className={textWrap}>
-                        <span className={text}>네이버 이용약관</span>
+                        <span className={text}>{language === 1 && '네이버 이용약관'}</span>
                       </div>
                     </div>
                   </label>
@@ -117,7 +119,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option(true)}>[필수]</em>
                       <div className={textWrap}>
-                        <span className={text}>개인정보 수집 및 이용</span>
+                        <span className={text}>{language === 1 && '개인정보 수집 및 이용'}</span>
                       </div>
                     </div>
                   </label>
@@ -139,7 +141,9 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option()}>[선택]</em>
                       <div className={textWrap}>
-                        <span className={text}>실명 인증된 아이디로 가입</span>
+                        <span className={text}>
+                          {language === 1 && '실명 인증된 아이디로 가입'}
+                        </span>
                       </div>
                     </div>
                   </label>
@@ -165,7 +169,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option()}>[선택]</em>
                       <div className={textWrap}>
-                        <span className={text}>위치기반서비스 이용약관</span>
+                        <span className={text}>{language === 1 && '위치기반서비스 이용약관'}</span>
                       </div>
                     </div>
                   </label>
@@ -186,7 +190,7 @@ const CheckPermission = () => {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <em className={option()}>[선택]</em>
                       <div className={textWrap}>
-                        <span className={text}>개인정보 수집 및 이용</span>
+                        <span className={text}>{language === 1 && '개인정보 수집 및 이용'}</span>
                       </div>
                     </div>
                   </label>
@@ -204,7 +208,11 @@ const CheckPermission = () => {
             <a className={joinByBusiness}>단체, 비즈니스 회원 가입</a>
           </div>
           <div className={submit}>
-            <button type="button" className={button(checked.이용약관 && checked.개인정보)}>
+            <button
+              type="button"
+              className={button(checked.이용약관 && checked.개인정보)}
+              onClick={() => navigate('/user2/join/begin')}
+            >
               다음
             </button>
           </div>

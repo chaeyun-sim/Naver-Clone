@@ -7,10 +7,12 @@ const LeftSection = () => {
     <div className={container}>
       <div className={bannerWrapper}>
         <Section>
-          <img
-            src="https://ssl.pstatic.net/melona/libs/1483/1483675/5a3c8bd1a3d66f17ea89_20240119163340926.png"
-            className={banner}
-          />
+          <a href="https://chzzk.naver.com/?pcode=naver_timeboard&campaign_id=2312-game-001&channel_id=naver_timeboard">
+            <img
+              src="https://ssl.pstatic.net/melona/libs/1483/1483493/190c1703a48bc624e5fd_20240117160301878.png"
+              className={banner}
+            />
+          </a>
         </Section>
       </div>
       <div className={newsWrapper}>

@@ -3,9 +3,9 @@ import Layout from './components/layout/Layout';
 import Main from './pages';
 import FindId from './pages/Signup/FindId';
 import FindPassword from './pages/Signup/FindPassword';
-import SignupForm from './pages/Signup/SignupForm';
 import CheckPermission from './pages/Signup/CheckPermission';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import SignupForm from './pages/Signup/SignupForm';
 
 let queryClient = new QueryClient();
 

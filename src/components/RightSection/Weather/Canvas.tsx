@@ -18,15 +18,16 @@ const TemperatureGraph = ({ data }: Props) => {
             labels: ['시간1', '시간2', '시간3', '시간4', '시간5'], // x축 레이블
             datasets: [
               {
-                data: data, // 데이터 포인트
+                data,
                 fill: false,
                 borderColor: '#d3d5d7',
                 backgroundColor: '#d3d5d7',
                 borderWidth: 2,
                 pointRadius: 0,
-                tension: 0, // 선의 곡률을 조정합니다.
-                borderCapStyle: 'round', // 라인 끝 스타일을 둥글게 처리합니다.
-                borderJoinStyle: 'round', // 라인이 만나는 부분의 스타일을 둥글게 처리합니다.
+                tension: 0,
+                borderCapStyle: 'round',
+                borderJoinStyle: 'round',
+                stepped: true,
               },
             ],
           },
@@ -73,7 +74,14 @@ const TemperatureGraph = ({ data }: Props) => {
         ref={canvasRef}
         width={'180'}
         height={'37'}
-        style={{ width: '100%', height: '100%' }}
+        style={{
+          width: '100%',
+          height: '100%',
+          minWidth: '100%',
+          minHeight: '100%',
+          maxHeight: '100%',
+          maxWidth: '100%',
+        }}
       />
     </div>
   );

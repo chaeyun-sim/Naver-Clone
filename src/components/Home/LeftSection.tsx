@@ -1,5 +1,6 @@
 import { css } from '../../../styled-system/css';
 import News from '../NewsSection/News';
+import Shopping from '../ShoppingSection/Shopping';
 import Section from '../base/Section';
 
 const LeftSection = () => {
@@ -17,6 +18,9 @@ const LeftSection = () => {
       </div>
       <div className={newsWrapper}>
         <News />
+      </div>
+      <div className={shoppingWrapper}>
+        <Shopping />
       </div>
     </div>
   );
@@ -43,4 +47,9 @@ const banner = css({
 const newsWrapper = css({
   marginTop: '1.6rem',
   height: '42.6rem',
+});
+
+const shoppingWrapper = css({
+  marginTop: '1.6rem',
+  height: '56rem',
 });

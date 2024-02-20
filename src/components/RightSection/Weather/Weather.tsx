@@ -57,7 +57,7 @@ const Weather = () => {
     },
   });
 
-  useQuery(
+  const { refetch } = useQuery(
     ['get-current-weather'],
     () => getCurrentWeahter({ lat: location.lat, lon: location.lon }),
     {
@@ -78,6 +78,12 @@ const Weather = () => {
   );
 
   useEffect(() => {
+    if (currentWeather) {
+      refetch();
+    }
+  }, []);
+
+  useEffect(() => {
     if (useLocation.loaded) {
       const coordinates = JSON.stringify(useLocation.coordinates);
       const locations = JSON.parse(coordinates);
@@ -85,11 +91,7 @@ const Weather = () => {
     }
   }, [useLocation]);
 
-  const calculateLineHeight = (temperature: number) => {
-    const max = Math.max(...forecasts.map((el) => el[2] as number));
-    const height = Math.round((temperature / max) * 4.5);
-    return `${height}rem`;
-  };
+  const transformedData = forecasts.map((el) => Number(el[2]));
 
   return (
     <Section style={{ marginTop: '1.6rem', height: '23.6rem' }}>
@@ -134,12 +136,11 @@ const Weather = () => {
           </div>
           <div className={forecast}>
             <a href="https://weather.naver.com/today/03170126?cpName=KMA" className={forecastBox}>
-              <TemperatureGraph data={forecasts.map((el) => el[2] as number)} />
+              <TemperatureGraph data={transformedData} />
               <ul className={weatherList}>
                 {forecasts.map((el, index) => {
                   const hour = String(el[0]).split(':')[0];
                   const iconValue = getSmallIcons(String(el[1]), String(el[0]));
-                  const lineHeight = calculateLineHeight(Number(el[2]));
 
                   return (
                     <li key={el[0]} className={weatherItem}>
@@ -151,7 +152,7 @@ const Weather = () => {
                         <div className={time(index)}>{Number(hour)}</div>
                       )}
                       <div className={icon(iconValue!)} />
-                      <div className={celsius(lineHeight)}>{el[2]}°</div>
+                      <div className={celsius}>{el[2]}°</div>
                     </li>
                   );
                 })}
@@ -401,27 +402,26 @@ const icon = (position: string) =>
     },
   });
 
-const celsius = (lineHeight: string) =>
-  css({
-    marginTop: 0,
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: '6rem',
-    left: 0,
-    fontSize: '1.4rem',
-    lineHeight: '1.6rem',
-    '&::before': {
-      content: '""',
-      display: 'block',
-      position: 'absolute',
-      bottom: 0,
-      left: '1.5rem',
-      backgroundColor: '#EBEBEB',
-      width: '0.1rem',
-      height: lineHeight,
-    },
-  });
+const celsius = css({
+  marginTop: 0,
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  bottom: '6rem',
+  left: 0,
+  fontSize: '1.4rem',
+  lineHeight: '1.6rem',
+  // '&::before': {
+  //   content: '""',
+  //   display: 'block',
+  //   position: 'absolute',
+  //   bottom: 0,
+  //   left: '1.5rem',
+  //   backgroundColor: '#EBEBEB',
+  //   width: '0.1rem',
+  //   height: lineHeight,
+  // },
+});
 
 // icon
 

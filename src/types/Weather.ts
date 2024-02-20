@@ -1,0 +1,42 @@
+type WeatherAmount = {
+  Value: number;
+  Unit: string;
+  UnitType: number;
+  Phrase?: string;
+};
+
+export type WeatherData = {
+  Ceiling: WeatherAmount;
+  CloudCover: number;
+  DateTime: string;
+  DewPoint: WeatherAmount;
+  EpochDateTime: number;
+  Evapotranspiration: WeatherAmount;
+  HasPrecipitation: boolean;
+  Ice: WeatherAmount;
+  IceProbability: number;
+  IconPhrase: string;
+  IndoorRelativeHumidity: number;
+  IsDaylight: boolean;
+  Link: string;
+  MobileLink: string;
+  PrecipitationProbability: number;
+  Rain: WeatherAmount;
+  RainProbability: number;
+  RealFeelTemperature: WeatherAmount;
+  RealFeelTemperatureShade: WeatherAmount;
+  RelativeHumidity: number;
+  Snow: WeatherAmount;
+  SnowProbability: number;
+  Temperature: WeatherAmount;
+  ThunderstormProbability: number;
+  TotalLiquid: WeatherAmount;
+  UVIndex: number;
+  UVIndexText: string;
+  Visibility: WeatherAmount;
+  WeatherIcon: number;
+  WetBulbGlobeTemperature: WeatherAmount;
+  WebBulbTemperature: WeatherAmount;
+  Wind: object;
+  WindGust: object;
+};

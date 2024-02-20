@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { VITE_APP_ACCU_WEATHER_API_KEY, VITE_APP_OPEN_WEATHER_API_KEY } from '../configs';
 
 type Name = {
   official: string;
@@ -93,5 +94,67 @@ export const getCountries = async () => {
       });
   } catch (error) {
     console.log(`${error!}`);
+  }
+};
+
+export const getLocationData = async ({
+  latitude,
+  longitude,
+}: {
+  latitude: number;
+  longitude: number;
+}) => {
+  try {
+    const params = {
+      apikey: VITE_APP_ACCU_WEATHER_API_KEY,
+      q: `${latitude},${longitude}`,
+      language: 'ko-kr',
+    };
+
+    const res = await axios.get(
+      'http://dataservice.accuweather.com/locations/v1/cities/geoposition/search',
+      { params },
+    );
+
+    return res.data;
+  } catch (error) {
+    console.log(`${error}`);
+  }
+};
+
+export const getForecasts = async ({ code }: { code: number }) => {
+  try {
+    const params = {
+      apikey: VITE_APP_ACCU_WEATHER_API_KEY,
+      language: 'ko-kr',
+      details: true,
+    };
+
+    const res = await axios.get(
+      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${code}`,
+      { params },
+    );
+
+    return res.data;
+  } catch (error) {
+    console.log(`${error}`);
+  }
+};
+
+export const getCurrentWeahter = async ({ lat, lon }: { lat: number; lon: number }) => {
+  try {
+    const params = {
+      appid: VITE_APP_OPEN_WEATHER_API_KEY,
+      lat: lat,
+      lon: lon,
+      lang: 'kr',
+      units: 'metric',
+    };
+
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, { params });
+
+    return res.data;
+  } catch (error) {
+    console.log(`${error}`);
   }
 };

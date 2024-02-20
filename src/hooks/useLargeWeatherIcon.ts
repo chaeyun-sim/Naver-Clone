@@ -15,7 +15,7 @@ const useLargeWeatherIcon = () => {
       return isNight ? '-52.8rem -43.5rem' : '-17.4rem -25.9rem';
     } else if (weather.includes('흐리고 한때 비')) {
       return isNight ? '-0.4rem -43.5rem' : '-9.3rem -34.4rem';
-    } else if (weather.includes('적은 비')) {
+    } else if (weather.includes('적은 비') || weather === '실 비') {
       return '-8.9rem -17rem';
     } else if (weather.includes('뇌우') || weather.includes('번개')) {
       return '-34.8rem -8.7rem';

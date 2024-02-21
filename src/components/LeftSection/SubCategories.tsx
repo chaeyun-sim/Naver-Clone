@@ -1,6 +1,6 @@
 import { css } from '../../../styled-system/css';
+import { serviceUrl } from '../LeftSection/News/constants/serviceUrl';
 import Divider from '../base/Divider';
-import { serviceUrl } from './News/constants/serviceUrl';
 
 interface Props {
   currentCategory: number;

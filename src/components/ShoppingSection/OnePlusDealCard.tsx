@@ -1,39 +1,39 @@
 import { css } from '../../../styled-system/css';
 
 interface Props {
-  price: number;
+  price: string;
+  image: string;
+  title: string;
+  url: string;
 }
 
-const OnePlusDealCard = ({ price }: Props) => {
-  const title = '[설기획전] 오쏘몰 이뮨 2박스 포장 + 2일분 (쇼핑백 증정)';
-
+const OnePlusDealCard = ({ image, title, url, price }: Props) => {
   const handleSeperator = () => {
     return String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   return (
-    <div className={container}>
-      <div className={imageBox}>
-        <div className={costBox}>
-          <div className={plus}>
-            <span>1+1</span>
+    <a href={url}>
+      <div className={container}>
+        <div className={imageBox}>
+          <div className={costBox}>
+            <div className={plus}>
+              <span>1+1</span>
+            </div>
+            <div className={discountBox}>
+              <span className={discount}>38%</span>
+            </div>
           </div>
-          <div className={discountBox}>
-            <span className={discount}>38%</span>
-          </div>
+          <div className={blur} />
+          <img src={image} className={image} />
         </div>
-        <div className={blur} />
-        <img
-          src="https://s.pstatic.net/shopping.phinf/20240130_18/f90772db-b620-4574-a3be-f9f2a4b8cf01.jpg?type=f320_230"
-          className={image}
-        />
+        <div className={textBox}>
+          <span className={priceStyle}>{handleSeperator()}원</span>
+          <span>{title.slice(0, 10)}</span>
+          <span className={nextText}>{title.slice(11)}</span>
+        </div>
       </div>
-      <div className={textBox}>
-        <span className={priceStyle}>{handleSeperator()}원</span>
-        <span>{title.slice(0, 10)}</span>
-        <span className={nextText}>{title.slice(11)}</span>
-      </div>
-    </div>
+    </a>
   );
 };
 
@@ -45,6 +45,13 @@ const container = css({
   width: '18rem',
   height: '18.9rem',
   cursor: 'pointer',
+  '& img': {
+    transition: 'transform 0.3s ease-in-out',
+  },
+  '&:hover img': {
+    transform: 'scale(1.1)',
+    transition: 'transform 0.3s ease-in-out',
+  },
 });
 
 const imageBox = css({
@@ -54,10 +61,6 @@ const imageBox = css({
   height: '11.5rem',
   overflow: 'hidden',
   borderRadius: '0.4rem',
-  transition: 'transform 0.2s',
-  '&:hover': {
-    transform: 'scale(1.05)',
-  },
 });
 
 const blur = css({
@@ -69,14 +72,6 @@ const blur = css({
   borderRadius: '0.4rem',
 });
 
-const image = css({
-  verticalAlign: 'top',
-  width: '100%',
-  height: '100%',
-  transform: 'scale(1.0)',
-  transition: 'transform 0.1s',
-});
-
 const textBox = css({
   paddingTop: '1rem',
   color: '#101010',
@@ -84,10 +79,6 @@ const textBox = css({
   fontWeight: '600',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
-  '&:hover': {
-    textDecoration: 'underline',
-    textUnderlineOffset: '0.25rem',
-  },
 });
 
 const priceStyle = css({

@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { css } from '../../../styled-system/css';
 import Dot from '../base/Dot';
 
@@ -10,11 +11,11 @@ const MallNameGroup = () => {
 
   return (
     <div className={conatiner}>
-      {malls.map((data) => {
+      {malls.map((data, idx) => {
         return (
-          <div className={box}>
+          <div className={box} key={idx}>
             {data.map((item, index) => (
-              <>
+              <Fragment key={index}>
                 <div className={row}>
                   {['11번가', 'SSG닷컴', 'GS SHOP'].includes(item) ? (
                     <strong className={name}>{item}</strong>
@@ -22,8 +23,12 @@ const MallNameGroup = () => {
                     <span className={name}>{item}</span>
                   )}
                 </div>
-                {index < data.length - 1 && <Dot />}
-              </>
+                {index < data.length - 1 && (
+                  <div style={{ marginBottom: '0.5rem' }}>
+                    <Dot />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
         );

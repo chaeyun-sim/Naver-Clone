@@ -3,46 +3,54 @@ import { css } from '../../../styled-system/css';
 interface Props {
   price: number;
   title: string;
+  image: string;
+  url: string;
 }
 
-const OnePlusDealHorizontalCard = ({ title, price }: Props) => {
+const OnePlusDealHorizontalCard = ({ image, url, title, price }: Props) => {
   const handleSeperator = () => {
     return String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   return (
-    <div className={container}>
-      <div className={imageBox}>
-        <div className={costBox}>
-          <div className={plus}>
-            <span>1+1</span>
+    <a href={url}>
+      <div className={container}>
+        <div className={imageBox}>
+          <div className={costBox}>
+            <div className={plus}>
+              <span>1+1</span>
+            </div>
+            <div className={discountBox}>
+              <span className={discount}>38%</span>
+            </div>
           </div>
-          <div className={discountBox}>
-            <span className={discount}>38%</span>
-          </div>
+          <div className={blur} />
+          <img src={image} className={image} />
         </div>
-        <div className={blur} />
-        <img
-          src="https://s.pstatic.net/shopping.phinf/20240130_18/f90772db-b620-4574-a3be-f9f2a4b8cf01.jpg?type=f320_230"
-          className={image}
-        />
+        <div className={textBox}>
+          <p className={titleStyle}>{title.slice(0, 26)}...</p>
+          <p className={priceStyle}>{handleSeperator()}원</p>
+        </div>
       </div>
-      <div className={textBox}>
-        <p className={titleStyle}>{title}</p>
-        <p className={priceStyle}>{handleSeperator()}</p>
-      </div>
-    </div>
+    </a>
   );
 };
 
 export default OnePlusDealHorizontalCard;
 
 const container = css({
-  width: '22.9rem',
+  width: '22.8rem',
   height: '9.2rem',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
+  '& img': {
+    transition: 'transform 0.3s ease-in-out',
+  },
+  '&:hover img': {
+    transform: 'scale(1.1)',
+    transition: 'transform 0.3s ease-in-out',
+  },
 });
 
 const imageBox = css({
@@ -52,10 +60,6 @@ const imageBox = css({
   height: '9.2rem',
   overflow: 'hidden',
   borderRadius: '0.4rem',
-  transition: 'transform 0.2s',
-  '&:hover': {
-    transform: 'scale(1.05)',
-  },
 });
 
 const blur = css({
@@ -65,14 +69,6 @@ const blur = css({
   width: '16rem',
   height: '11.5rem',
   borderRadius: '0.4rem',
-});
-
-const image = css({
-  verticalAlign: 'top',
-  width: '100%',
-  height: '100%',
-  transform: 'scale(1.0)',
-  transition: 'transform 0.1s',
 });
 
 const costBox = css({
@@ -138,9 +134,17 @@ const textBox = css({
 const titleStyle = css({
   textOverflow: 'ellipsis',
   whiteSpace: 'wrap',
+  maxHeight: '3.8rem',
+  overflow: 'hidden',
+  lineHeight: '1.9rem',
+  WebkitLineClamp: 2,
+  fontSize: '1.3rem',
 });
 
 const priceStyle = css({
   marginTop: '0.4rem',
-  color: ' #F4361E',
+  color: '#F4361E',
+  fontWeight: '700',
+  fontSize: '1.35rem',
+  lineHeight: '1.9rem',
 });

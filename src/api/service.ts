@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { VITE_APP_ACCU_WEATHER_API_KEY, VITE_APP_OPEN_WEATHER_API_KEY } from '../configs';
+import {
+  VITE_APP_ACCU_WEATHER_API_KEY,
+  VITE_APP_NAVER_CLIENT_ID,
+  VITE_APP_NAVER_CLIENT_SECRET,
+  VITE_APP_OPEN_WEATHER_API_KEY,
+} from '../configs';
 
 type Name = {
   official: string;
@@ -156,5 +161,41 @@ export const getCurrentWeahter = async ({ lat, lon }: { lat: number; lon: number
     return res.data;
   } catch (error) {
     console.log(`${error}`);
+  }
+};
+
+const fetchItems = async (query: string, display: number) => {
+  const { data } = await axios.get('/v1/search/shop', {
+    params: { query, display },
+    headers: {
+      'X-Naver-Client-Id': VITE_APP_NAVER_CLIENT_ID,
+      'X-Naver-Client-Secret': VITE_APP_NAVER_CLIENT_SECRET,
+    },
+  });
+  return data.items;
+};
+
+export const getShoppingData = async ({ category }: { category: number }) => {
+  try {
+    let items = [];
+
+    if (category === 0) {
+      const queries = ['여성', '화장', '봄'];
+      const requests = queries.map((query) => fetchItems(query, 10));
+      const results = await Promise.all(requests);
+      items = results.flat();
+    } else if (category === 1) {
+      const queries = ['남성', '맨'];
+      const requests = queries.map((query) => fetchItems(query, 20));
+      const results = await Promise.all(requests);
+      items = results.flat();
+    } else if (category === 2) {
+      items = await fetchItems('원쁠딜', 100);
+    }
+
+    return items.sort(() => Math.random() - 0.5);
+  } catch (error) {
+    console.error(error);
+    return [];
   }
 };

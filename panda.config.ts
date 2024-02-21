@@ -30,6 +30,12 @@ export default defineConfig({
           },
         },
       },
+      keyframes: {
+        fadeout: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+      },
     },
   },
 

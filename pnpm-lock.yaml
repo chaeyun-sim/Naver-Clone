@@ -17,6 +17,9 @@ dependencies:
   classnames:
     specifier: ^2.5.1
     version: 2.5.1
+  dompurify:
+    specifier: ^3.0.9
+    version: 3.0.9
   dotenv:
     specifier: ^16.4.4
     version: 16.4.5
@@ -2370,6 +2373,10 @@ packages:
   /domain-browser@1.2.0:
     resolution: {integrity: sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==}
     engines: {node: '>=0.4', npm: '>=1.2'}
+    dev: false
+
+  /dompurify@3.0.9:
+    resolution: {integrity: sha512-uyb4NDIvQ3hRn6NiC+SIFaP4mJ/MdXlvtunaqK9Bn6dD3RuB/1S/gasEjDHD8eiaqdSael2vBv+hOs7Y+jhYOQ==}
     dev: false
 
   /dotenv@16.4.5:

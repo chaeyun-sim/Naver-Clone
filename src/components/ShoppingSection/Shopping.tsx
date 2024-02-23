@@ -10,6 +10,7 @@ import { useQuery } from 'react-query';
 import { getShoppingData } from '../../api/service';
 import CategoryOnePlusDeal from './CategoryOnePlusDeal';
 import SubCategories from './SubCategories';
+import CategoryShoppingLive from './CategoryShoppingLive';
 
 export type ShopItem = {
   brand: string;
@@ -147,6 +148,7 @@ const Shopping = () => {
         {currentCategory === 0 && <CategoryShopping page={currentPage} data={shoppingData} />}
         {currentCategory === 1 && <CategoryMens page={currentPage} data={shoppingData} />}
         {currentCategory === 2 && <CategoryOnePlusDeal page={currentPage} data={shoppingData} />}
+        {currentCategory === 3 && <CategoryShoppingLive page={currentPage} />}
         <div className={contentPaging}>
           <PageButton
             categoryName={categoryList[currentCategory].name}

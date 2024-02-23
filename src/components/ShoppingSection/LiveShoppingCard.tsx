@@ -1,120 +1,124 @@
 import { css } from '../../../styled-system/css';
 
 interface Props {
-  title: string;
-  coverImage: string;
-  shopName: string;
-  date: string;
+  text: string;
+  image: string;
+  onClick: () => void;
+  isSelected: boolean;
 }
 
-const LiveShoppingCard = ({ title, coverImage, shopName, date }: Props) => {
-  const handleTextSlice = () => {
-    return title.length > 22 ? title.slice(0, 22) + '...' : title;
-  };
-
+const LiveShoppingCard = ({ text, image, onClick, isSelected }: Props) => {
   return (
-    <div className={container}>
-      <div className={imageWrapper}>
-        <img src={coverImage} className={image} />
-      </div>
-      <div className={box}>
-        <div className={textBox}>
-          <p className={liveTitle}>{handleTextSlice()}</p>
-          <p className={liveShopName}>{shopName}</p>
+    <div className={box} onClick={onClick}>
+      <div className={item(isSelected)}>
+        <div className={badge}>
+          <div className={badgeText}>LIVE</div>
         </div>
-        <div className={liveTimeBox}>
-          <span className={time}>{date}</span>
-          <button className={noticeCircle}>
-            <div className={noticeIcon} />
-          </button>
-        </div>
+        <span className={imgBox}>
+          <img className={img} src={image} width="90" height="126" />
+        </span>
       </div>
+      <div className={shopLiveTitle}>{text}</div>
     </div>
   );
 };
 
 export default LiveShoppingCard;
 
-const container = css({
-  borderRadius: '0.4rem',
-  display: 'flex',
-  width: '22.9rem',
-  height: '11rem',
-  overflow: 'hidden',
-  border: '0.1rem solid rgba(0,0,0,0.04)',
-});
-
-const imageWrapper = css({
-  width: '8.2rem',
-  height: '11rem',
-  overflow: 'hidden',
-  transition: 'transform 0.2s',
-  '&:hover': {
-    transform: 'scale(1.05)',
+const box = css({
+  cursor: 'pointer',
+  '& img': {
+    transition: 'transform 0.3s ease-in-out',
+  },
+  '&:hover img': {
+    transform: 'scale(1.1)',
+    transition: 'transform 0.3s ease-in-out',
   },
 });
 
-const image = css({
-  verticalAlign: 'top',
-  width: '100%',
-  height: '100%',
-  transform: 'scale(1.0)',
-  transition: 'transform 0.1s',
-});
+const item = (selected: boolean) =>
+  css({
+    position: 'relative',
+    display: 'block',
+    '&::after': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      border: '1px solid #F4361E',
+      backgroundColor: 'rgba(244,54,30,.08)',
+      borderRadius: '0.4rem',
+      visibility: selected ? 'visible' : 'hidden',
+    },
+  });
 
-const box = css({
-  padding: '1.2rem 1.2rem 0 1.3rem',
-  flex: '1 1',
-  position: 'relative',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-});
-
-const textBox = css({});
-
-const liveTitle = css({
-  fontSize: '1.3rem',
-  color: '#101010',
-  lineHeight: '1.9rem',
-  width: '10.9rem',
-  marginTop: '-0.2rem',
-});
-
-const liveShopName = css({
-  marginTop: '0.2rem',
-  color: '#606060',
-  fontSize: '1.3rem',
+const badge = css({
+  position: 'absolute',
+  top: '0.6rem',
+  left: '0.6rem',
+  display: 'inline-block',
+  height: '2rem',
+  borderRadius: '1.2rem',
+  backgroundClip: 'rgba(0,0,0,.3)',
+  fontSize: '1.1rem',
   lineHeight: '2rem',
+  letterSpacing: '-.4px',
+  verticalAlign: 'top',
+  color: 'white',
 });
 
-const liveTimeBox = css({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  height: '2.8rem',
+const badgeText = css({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  background: '#F4361E',
+  width: '3.8rem',
+  height: '100%',
+  borderRadius: '1.2rem',
+  fontWeight: '700',
+  textAlign: 'center',
 });
 
-const time = css({
-  fontSize: '1.3rem',
-  color: '#404040',
-});
-
-const noticeCircle = css({
-  width: '2.8rem',
-  height: '2.8rem',
-  border: '0.1rem solid #F4361E',
-  borderRadius: '50%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+const imgBox = css({
+  width: '9rem',
+  height: '12.6rem',
+  overflow: 'hidden',
+  position: 'relative',
+  display: 'block',
+  borderRadius: '0.4rem',
   cursor: 'pointer',
+  '&::after': {
+    content: '""',
+    display: 'block',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    border: '1px solid rgba(0,0,0,.06)',
+    borderRadius: 'inherit',
+    background: 'rgba(0,0,0,.03)',
+    transform: 'translateZ(0)',
+    perspective: '0.1rem',
+  },
 });
 
-const noticeIcon = css({
-  width: '1.4rem',
-  height: '1.4rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
-  backgroundSize: '159px 137px',
-  backgroundRepeat: 'no-repeat',
+const img = css({
+  transition: 'transform .2s cubic-bezier(.165,.84,.44,1)',
+  imageRendering: '-webkit-optimize-contrast',
+  pointerEvents: 'none',
+});
+
+const shopLiveTitle = css({
+  overflow: 'hidden',
+  maxHeight: '3.8rem',
+  width: '9rem',
+  lineHeight: '1.9rem',
+  textOverflow: 'ellipsis',
+  WebkitLineClamp: 2,
+  marginTop: '0.8rem',
+  fontSize: '1.3rem',
 });

@@ -1,37 +1,40 @@
+import classNames from 'classnames';
 import { css } from '../../../styled-system/css';
 
-const NaverShopping = () => {
-  const data = [
-    {
-      name: '쇼핑홈',
-      icon: shopIcon,
-    },
-    {
-      name: '리뷰적립',
-      icon: pointIcon,
-    },
-    {
-      name: '주문',
-      icon: truckIcon,
-    },
-    {
-      name: '장바구니',
-      icon: bagIcon,
-    },
-  ];
+const data = [
+  {
+    name: '쇼핑홈',
+    position: '-3.4rem 0',
+    url: 'https://shopping.naver.com/home',
+  },
+  {
+    name: '리뷰적립',
+    position: '-6.8rem -3.4rem',
+    url: 'https://shopping.naver.com/my/writable-reviews',
+  },
+  {
+    name: '주문',
+    position: '-3.4rem -3.4rem',
+    url: 'https://new-m.pay.naver.com/pcpay?serviceGroup=SHOPPING&page=1',
+  },
+  {
+    name: '장바구니',
+    position: '',
+    url: 'https://shopping.naver.com/cart',
+  },
+];
 
+const NaverShopping = () => {
   return (
     <div className={container}>
       {data.map((box) => (
-        <div key={box.name} className={item}>
-          <div className={box.name === '리뷰적립' ? itemWithBadge : ''}>
+        <a href={box.url} key={box.name} className={item}>
+          <div className={itemWithBadge}>
             {box.name === '리뷰적립' && <span className={badge}>5</span>}
-            <div className={iconCircle}>
-              <div className={box.icon} />
-            </div>
+            <div className={classNames(iconCircle, icon(box.name, box.position))} />
           </div>
           <span className={name}>{box.name}</span>
-        </div>
+        </a>
       ))}
     </div>
   );
@@ -45,11 +48,12 @@ const itemWithBadge = css({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
+  cursor: 'pointer',
 });
 
 const container = css({
   width: '24.8rem',
-  height: '6.5rem',
+  height: '7.2rem',
   padding: '0.9rem',
   marginTop: '1.2rem',
   borderRadius: '0.4rem',
@@ -82,43 +86,28 @@ const name = css({
   color: '#404040',
   fontSize: '1.3rem',
   fontWeight: '500',
+  marginTop: '0.3rem',
 });
 
-const shopIcon = css({
-  width: '3.2rem',
-  height: '3.2rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
-  backgroundSize: '159px 137px',
-  backgroundRepeat: 'no-repeat',
-  transform: 'translate(-50%, -50%)',
-});
+// icon
 
-const pointIcon = css({
-  width: '3.2rem',
-  height: '3.2rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
-  backgroundSize: '159px 137px',
-  backgroundRepeat: 'no-repeat',
-  transform: 'translate(-50%, -50%)',
-});
-
-const truckIcon = css({
-  width: '3.2rem',
-  height: '3.2rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
-  backgroundSize: '159px 137px',
-  backgroundRepeat: 'no-repeat',
-  transform: 'translate(-50%, -50%)',
-});
-
-const bagIcon = css({
-  width: '3.2rem',
-  height: '3.2rem',
-  background: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
-  backgroundSize: '159px 137px',
-  backgroundRepeat: 'no-repeat',
-  transform: 'translate(-50%, -50%)',
-});
+const icon = (name: string, position: string) =>
+  css({
+    '&::before': {
+      content: '""',
+      display: 'block',
+      width: name === '장바구니' ? '1.7rem' : '3.2rem',
+      height: name === '장바구니' ? '1.6rem' : '3.2rem',
+      backgroundImage: `url(https://spastatic.naver.com/v1/shopad/static/shopad-square-node/v2402021651/_next/static/media/sp_main.05384be4.png)`,
+      backgroundPosition: name === '장바구니' ? '-1.9rem -12.1rem' : position,
+      backgroundSize: '15.9rem 13.7rem',
+      backgroundRepeat: 'no-repeat',
+      transform: 'translate(-50%,-50%)',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+    },
+  });
 
 const badge = css({
   position: 'absolute',

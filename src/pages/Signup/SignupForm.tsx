@@ -33,6 +33,7 @@ import nameValidation from '../../hooks/nameValidation';
 import birthValidation from '../../hooks/birthValidation';
 import { css } from '../../../styled-system/css';
 import { useNavigate } from 'react-router-dom';
+import useAddHypen from '../../hooks/useAddHypen';
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const SignupForm = () => {
   const checkEmail = emailValidation();
   const checkName = nameValidation();
   const checkBirth = birthValidation();
+  const convertPhone = useAddHypen();
   const [focus, setFocus] = useState<number>(0);
   const [selectGender, setSelectGender] = useState<string>('');
   const [isChecked, setisChecked] = useState<boolean>(false);
@@ -69,21 +71,9 @@ const SignupForm = () => {
 
   const addHypenToNumber = () => {
     setInputs((inputs) => {
-      const firstPart = inputs.phone.slice(0, 3);
-      let middlePart;
-      let lastPart = inputs.phone.slice(-4);
-
-      if (inputs.phone.length === 10) {
-        middlePart = inputs.phone.slice(3, 6);
-      } else if (inputs.phone.length === 11) {
-        middlePart = inputs.phone.slice(3, 7);
-      } else {
-        return inputs;
-      }
-
       return {
         ...inputs,
-        phone: `${firstPart}-${middlePart}-${lastPart}`,
+        phone: convertPhone(inputs.phone),
       };
     });
   };

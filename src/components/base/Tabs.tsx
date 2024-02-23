@@ -16,7 +16,6 @@ const Tabs = ({ categories, currentCategory, onChangeCurrentCategory }: Props) =
           <div key={index} className={categoryBox}>
             <div>
               <a
-                href="#"
                 className={classnames(
                   tabText,
                   boldUnderline,
@@ -56,6 +55,7 @@ const tabText = css({
   fontSize: '1.68rem',
   fontWeight: '800',
   marginTop: '0.1rem',
+  cursor: 'pointer',
 });
 
 const lineDivider = css({

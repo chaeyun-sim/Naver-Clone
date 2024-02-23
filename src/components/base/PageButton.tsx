@@ -22,6 +22,8 @@ const PageButton = ({
       return '#E538E2';
     } else if (categoryName === '경제 소식') {
       return '#008f76';
+    } else if (['쇼핑아이템', '맨즈아이템', '원쁠딜', '쇼핑라이브'].includes(categoryName)) {
+      return '#9858f5';
     }
 
     return '#3A67EA';

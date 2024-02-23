@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Section from '../base/Section';
 import Tabs from '../base/Tabs';
 import NewsCategories from '../LeftSection/NewsCategories';
-import SubCategories from '../LeftSection/SubCategories';
 import Entertainment from '../LeftSection/News/Entertainment';
 import Sports from '../LeftSection/News/Sports';
 import Economy from '../LeftSection/News/Economy';
@@ -10,6 +9,7 @@ import PageButton from '../base/PageButton';
 import { css } from '../../../styled-system/css';
 import Media from '../LeftSection/News/Media';
 import NewsStand from '../LeftSection/News/NewsStand';
+import SubCategories from '../LeftSection/SubCategories';
 
 const categoryList = [
   {

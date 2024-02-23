@@ -2,7 +2,6 @@ const useSmallWeatherIcon = () => {
   const getIcon = (weather: string, time: string) => {
     const hour = Number(time.split(':')[0]);
     const isNight = hour >= 20 || hour <= 5;
-    console.log(weather, time);
 
     if (weather.includes('맑음') || weather === '화창') {
       return isNight ? '-3.5rem -52.2rem' : '0 -52.2rem';

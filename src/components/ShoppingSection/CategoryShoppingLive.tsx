@@ -3,12 +3,14 @@ import { css } from '../../../styled-system/css';
 import LiveShoppingCard from './LiveShoppingCard';
 import { CardData, cardData } from './constant/liveShoppingData';
 import { upcomingData } from './constant/upcomingData';
+import usePriceSeperator from '../../hooks/usePriceSeperator';
 
 interface Props {
   page: number;
 }
 
 const CategoryShoppingLive = ({ page }: Props) => {
+  const seperator = usePriceSeperator();
   const [selectedCard, setSelectedCard] = useState<number>(0);
   const [liveData, setLiveData] = useState<CardData[]>([]);
 
@@ -50,7 +52,9 @@ const CategoryShoppingLive = ({ page }: Props) => {
                     <span className={productDiscount}>
                       {liveData[selectedCard]?.product?.discount}%
                     </span>
-                    <span className={productPrice}>{liveData[selectedCard].product?.price}원</span>
+                    <span className={productPrice}>
+                      {seperator(liveData[selectedCard].product?.price as number)}원
+                    </span>
                   </div>
                 </div>
               </div>

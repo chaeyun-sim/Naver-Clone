@@ -1,4 +1,5 @@
 import { css } from '../../../styled-system/css';
+import usePriceSeperator from '../../hooks/usePriceSeperator';
 
 interface Props {
   price: string;
@@ -8,9 +9,7 @@ interface Props {
 }
 
 const OnePlusDealCard = ({ image, title, url, price }: Props) => {
-  const handleSeperator = () => {
-    return String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+  const seperator = usePriceSeperator();
 
   return (
     <a href={url}>
@@ -28,7 +27,7 @@ const OnePlusDealCard = ({ image, title, url, price }: Props) => {
           <img src={image} className={image} />
         </div>
         <div className={textBox}>
-          <span className={priceStyle}>{handleSeperator()}원</span>
+          <span className={priceStyle}>{seperator(Number(price))}원</span>
           <span>{title.slice(0, 10)}</span>
           <span className={nextText}>{title.slice(11)}</span>
         </div>

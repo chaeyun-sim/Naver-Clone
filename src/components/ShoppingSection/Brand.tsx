@@ -1,6 +1,7 @@
 import { css } from '../../../styled-system/css';
 import classNames from 'classnames';
 import { BrandItems } from './data';
+import usePriceSeperator from '../../hooks/usePriceSeperator';
 
 interface Props {
   data: BrandItems;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const Brand = ({ data, page }: Props) => {
+  const seperator = usePriceSeperator();
   const key = Object.keys(data)[page - 2];
 
   return (
@@ -58,7 +60,7 @@ const Brand = ({ data, page }: Props) => {
           <div className={blocktw}>
             <span className={outerText}>{data[key][2].name}</span>
             <div>
-              <span className={price}>{data[key][2].price}원</span>
+              <span className={price}>{seperator(data[key][2].price as number)}원</span>
             </div>
           </div>
         </a>

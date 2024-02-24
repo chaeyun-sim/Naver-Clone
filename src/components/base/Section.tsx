@@ -4,11 +4,12 @@ import { css } from '../../../styled-system/css';
 interface Props {
   children: React.ReactNode;
   style?: React.CSSProperties;
+  height?: string;
 }
 
-const Section = ({ children, style }: Props) => {
+const Section = ({ children, style, height }: Props) => {
   const section = css({
-    height: '100%',
+    height: height || '100%',
     width: '100%',
     border: '0.1px solid #EBEBEB',
     borderRadius: '0.8rem',

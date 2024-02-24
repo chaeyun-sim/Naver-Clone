@@ -76,7 +76,7 @@ type Countries = {
 
 type CountriesResponseData = string[];
 
-module.exports = async (req: VercelRequest, res: VercelResponse) => {
+module.exports = async (_req: VercelRequest, res: VercelResponse) => {
   try {
     const response = await axios.get('https://restcountries.com/v3.1/all');
 
@@ -96,8 +96,7 @@ module.exports = async (req: VercelRequest, res: VercelResponse) => {
 
     res.status(200).json(countriesData);
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ message: error.message });
-    }
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
 };

@@ -24,8 +24,7 @@ module.exports = async (req: VercelRequest, res: VercelResponse) => {
 
     res.status(200).json(response.data);
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ message: error.message });
-    }
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
 };

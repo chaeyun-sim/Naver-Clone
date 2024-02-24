@@ -7,10 +7,10 @@ import PageButton from '../base/PageButton';
 import CategoryShopping from './CategoryShopping';
 import CategoryMens from './CategoryMens';
 import { useQuery } from 'react-query';
-import { getShoppingData } from '../../api/service';
 import CategoryOnePlusDeal from './CategoryOnePlusDeal';
 import SubCategories from './SubCategories';
 import CategoryShoppingLive from './CategoryShoppingLive';
+import axios from 'axios';
 
 export type ShopItem = {
   brand: string;
@@ -48,6 +48,13 @@ const categoryList = [
   },
 ];
 
+const fetchShoppingData = async (category: number) => {
+  const { data } = await axios.get(`/api/shopping`, {
+    params: { category },
+  });
+  return data;
+};
+
 const Shopping = () => {
   const [currentCategory, setCurrentCategory] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -55,7 +62,7 @@ const Shopping = () => {
 
   const { refetch } = useQuery<ShopItem[]>(
     ['get-shoopping-list'],
-    () => getShoppingData({ category: currentCategory }),
+    () => fetchShoppingData(currentCategory),
     {
       onSuccess: (data) => {
         if (data) {

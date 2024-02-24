@@ -8,7 +8,12 @@ import {
   selectItem,
 } from '../../../pages/Signup/SignupForm.style';
 import { useQuery } from 'react-query';
-import { getCountries } from '../../../api/service';
+import axios from 'axios';
+
+const fetchCountries = async () => {
+  const { data } = await axios.get('/api/countries');
+  return data;
+};
 
 interface Props {
   isError: boolean;
@@ -18,7 +23,7 @@ interface Props {
 const SelectBox = ({ isError, onSetCountry }: Props) => {
   const [countriesData, setCountriesData] = useState([]);
 
-  const { refetch } = useQuery(['countries-data'], getCountries, {
+  const { refetch } = useQuery(['countries-data'], fetchCountries, {
     onSuccess: (data) => {
       if (data) {
         setCountriesData(data);

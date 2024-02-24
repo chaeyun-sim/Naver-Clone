@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { css } from '../../../../styled-system/css';
 import { useQuery } from 'react-query';
-import { getStock } from '../../../api/service';
 import StockHeader from './StockHeader';
 import Nasdaq from './Nasdaq';
 import MostSearched from './MostSearched';
+import axios from 'axios';
 
 export type StockType = {
   basDt: string; // 기준일자
@@ -24,10 +24,15 @@ export type StockType = {
   vs: string; // 대비
 };
 
+const fetchStock = async () => {
+  const { data } = await axios.get(`/api/stock`);
+  return data;
+};
+
 const Stock = () => {
   const [stockData, setStockData] = useState<StockType[]>([]);
 
-  const { isLoading, refetch } = useQuery(['get-stock-data'], () => getStock(), {
+  const { isLoading, refetch } = useQuery(['get-stock-data'], () => fetchStock(), {
     onSuccess: (data) => {
       if (data.response.body.items.item) {
         setStockData(

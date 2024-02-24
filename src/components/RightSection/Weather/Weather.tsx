@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import useGeolocation from '../../../hooks/useGeoLocation';
 import { useQuery } from 'react-query';
-import { getCurrentWeahter, getForecasts, getLocationData } from '../../../api/service';
 import Section from '../../base/Section';
 import { css } from '../../../../styled-system/css';
 import classNames from 'classnames';
@@ -9,6 +8,28 @@ import { WeatherData } from '../../../types/Weather';
 import TemperatureGraph from './Canvas';
 import useLargeWeatherIcon from '../../../hooks/useLargeWeatherIcon';
 import useSmallWeatherIcon from '../../../hooks/useSmallWeatherIcon';
+import axios from 'axios';
+
+const fetchLocation = async (latitude: number, longitude: number) => {
+  const { data } = await axios.get(`/api/location`, {
+    params: { latitude, longitude },
+  });
+  return data;
+};
+
+const fetchForecasts = async (code: number) => {
+  const { data } = await axios.get(`/api/forecasts`, {
+    params: { code },
+  });
+  return data;
+};
+
+const fetchCurrentWeather = async (lat: number, lon: number) => {
+  const { data } = await axios.get(`/api/currentWeather`, {
+    params: { lat, lon },
+  });
+  return data;
+};
 
 const Weather = () => {
   const useLocation = useGeolocation();
@@ -28,8 +49,8 @@ const Weather = () => {
   const [forecasts, setForecasts] = useState<(string | number)[][]>([]);
 
   useQuery(
-    ['get-geolocation'],
-    () => getLocationData({ latitude: location.lat, longitude: location.lon }),
+    ['get-geolocation', location.lat, location.lon],
+    () => fetchLocation(location.lat, location.lon),
     {
       onSuccess: (data) => {
         if (data) {
@@ -40,7 +61,7 @@ const Weather = () => {
     },
   );
 
-  useQuery<WeatherData[]>(['get-forcasts'], () => getForecasts({ code: currentCode }), {
+  useQuery<WeatherData[]>(['get-forecasts'], () => fetchForecasts(currentCode), {
     enabled: !!currentCode,
     onSuccess: (data) => {
       if (data) {
@@ -58,8 +79,8 @@ const Weather = () => {
   });
 
   const { refetch } = useQuery(
-    ['get-current-weather'],
-    () => getCurrentWeahter({ lat: location.lat, lon: location.lon }),
+    ['get-current-weather', location.lat, location.lon],
+    () => fetchCurrentWeather(location.lat, location.lon),
     {
       onSuccess: (data) => {
         const curr = new Date();

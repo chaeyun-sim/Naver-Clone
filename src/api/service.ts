@@ -4,6 +4,7 @@ import {
   VITE_APP_NAVER_CLIENT_ID,
   VITE_APP_NAVER_CLIENT_SECRET,
   VITE_APP_OPEN_WEATHER_API_KEY,
+  VITE_APP_STOCK_API_KEY,
 } from '../configs';
 
 type Name = {
@@ -195,7 +196,25 @@ export const getShoppingData = async ({ category }: { category: number }) => {
 
     return items.sort(() => Math.random() - 0.5);
   } catch (error) {
-    console.error(error);
-    return [];
+    console.log(`${error}`);
+  }
+};
+
+export const getStock = async () => {
+  try {
+    const params = {
+      serviceKey: VITE_APP_STOCK_API_KEY,
+      numOfRows: 30,
+      resultType: 'json',
+    };
+
+    const res = await axios.get(
+      'https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo',
+      { params },
+    );
+
+    return res.data;
+  } catch (error) {
+    console.log(`${error}`);
   }
 };

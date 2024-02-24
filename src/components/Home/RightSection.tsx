@@ -1,5 +1,6 @@
 import { css } from '../../../styled-system/css';
 import Login from '../LoginSection/Login';
+import Stock from '../RightSection/Stock/Stock';
 import Weather from '../RightSection/Weather/Weather';
 import Section from '../base/Section';
 
@@ -17,6 +18,7 @@ const RightSection = () => {
           </a>
         </Section>
         <Weather />
+        <Stock />
       </div>
     </div>
   );

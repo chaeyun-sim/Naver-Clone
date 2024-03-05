@@ -28,12 +28,13 @@
     "react-query": "^3.39.3",
     "react-router-dom": "^6.21.3",
     "styled-system": "^5.1.5",
+    "swiper": "^11.0.7",
     "webpack-env": "^0.8.0"
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.41",
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
+    "@types/react": "^18.2.63",
+    "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
@@ -41,6 +42,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.1.5"
   }
 }

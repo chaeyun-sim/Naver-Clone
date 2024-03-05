@@ -315,7 +315,7 @@ const tableLock = (isLocked: boolean) =>
     position: 'relative',
     display: 'inline-block',
     borderRadius: '50%',
-    backgroundColor: isLocked ? '#dfdafc' : '#e0e0e0',
+    backgroundColor: isLocked ? '#e0e0e0' : '#dfdafc',
     verticalAlign: 'top',
     cursor: 'pointer',
     '&::before': {
@@ -328,7 +328,7 @@ const tableLock = (isLocked: boolean) =>
       bottom: 0,
       backgroundImage: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
       backgroundSize: '44.4rem 43.4rem',
-      backgroundPosition: isLocked ? '-23.9rem -29.9rem' : '0 -38.4rem',
+      backgroundPosition: isLocked ? '0 -38.4rem' : '-23.9rem -29.9rem',
       backgroundRepeat: 'no-repeat',
       width: '2rem',
       height: '2rem',

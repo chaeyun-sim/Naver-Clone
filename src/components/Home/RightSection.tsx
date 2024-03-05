@@ -5,6 +5,7 @@ import Ad from '../RightSection/Ad/Ad';
 import Stock from '../RightSection/Stock/Stock';
 import Weather from '../RightSection/Weather/Weather';
 import Widgets from '../RightSection/Widgets/Widgets';
+import ContentBannerBox from '../RightSection/ContentBannerBox';
 
 const RightSection = () => {
   return (
@@ -25,6 +26,7 @@ const RightSection = () => {
         />
         <div className={widgetWrapper}>
           <Widgets />
+          <ContentBannerBox />
         </div>
       </div>
     </div>

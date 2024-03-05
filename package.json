@@ -28,6 +28,7 @@
     "react-query": "^3.39.3",
     "react-router-dom": "^6.21.3",
     "styled-system": "^5.1.5",
+    "swiper": "^11.0.7",
     "webpack-env": "^0.8.0"
   },
   "devDependencies": {

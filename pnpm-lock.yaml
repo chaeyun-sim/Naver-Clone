@@ -50,6 +50,9 @@ dependencies:
   styled-system:
     specifier: ^5.1.5
     version: 5.1.5
+  swiper:
+    specifier: ^11.0.7
+    version: 11.0.7
   webpack-env:
     specifier: ^0.8.0
     version: 0.8.0
@@ -5148,6 +5151,11 @@ packages:
     dependencies:
       has-flag: 4.0.0
     dev: true
+
+  /swiper@11.0.7:
+    resolution: {integrity: sha512-cDfglW1B6uSmB6eB6pNmzDTNLmZtu5bWWa1vak0RU7fOI9qHjMzl7gVBvYSl34b0RU2N11HxxETJqQ5LeqI1cA==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /tapable@0.1.10:
     resolution: {integrity: sha512-jX8Et4hHg57mug1/079yitEKWGB3LCwoxByLsNim89LABq8NqgiX+6iYVOsq0vX8uJHkU+DZ5fnq95f800bEsQ==}

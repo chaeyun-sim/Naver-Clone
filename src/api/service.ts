@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
   VITE_APP_ACCU_WEATHER_API_KEY,
+  VITE_APP_HOLIDAY_API_KEY,
   VITE_APP_NAVER_CLIENT_ID,
   VITE_APP_NAVER_CLIENT_SECRET,
   VITE_APP_OPEN_WEATHER_API_KEY,
@@ -214,6 +215,45 @@ export const getStock = async () => {
     );
 
     return res.data;
+  } catch (error) {
+    console.log(`${error}`);
+  }
+};
+
+export const getHoliday = async () => {
+  try {
+    const params = {
+      serviceKey: VITE_APP_HOLIDAY_API_KEY,
+      _type: 'json',
+      solYear: '2024',
+      solMonth: '03',
+    };
+
+    const res1 = await axios.get(
+      'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo',
+      {
+        params,
+      },
+    );
+
+    const res2 = await axios.get(
+      'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo',
+      {
+        params,
+      },
+    );
+
+    const res3 = await axios.get(
+      'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/get24DivisionsInfo',
+      {
+        params,
+      },
+    );
+    return [
+      res1.data.response.body.items.item,
+      res2.data.response.body.items.item,
+      res3.data.response.body.items.item,
+    ].flat();
   } catch (error) {
     console.log(`${error}`);
   }

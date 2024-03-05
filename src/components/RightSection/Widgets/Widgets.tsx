@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import { css } from '../../../../styled-system/css';
 import CalendarWidget from './CalendarWidget';

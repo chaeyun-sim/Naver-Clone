@@ -1,4 +1,3 @@
-import React from 'react';
 import { css } from '../../../styled-system/css';
 import Login from '../LoginSection/Login';
 import Ad from '../RightSection/Ad/Ad';

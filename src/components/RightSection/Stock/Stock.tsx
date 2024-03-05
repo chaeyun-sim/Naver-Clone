@@ -35,7 +35,6 @@ const Stock = () => {
             (a: StockType, b: StockType) => Number(b.clpr) - Number(a.clpr),
           ),
         );
-        console.log(stockData);
       }
 
       if (!data && !isLoading) {

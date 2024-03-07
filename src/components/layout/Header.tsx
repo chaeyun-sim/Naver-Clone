@@ -3,9 +3,13 @@ import { css } from '../../../styled-system/css';
 import { services } from '../../constants/services';
 import ServiceBox from '../base/ServiceBox';
 
-const Header = () => {
+interface Props {
+  keyword: string;
+  onSetKeyword: (value: string) => void;
+}
+
+const Header = ({ keyword, onSetKeyword }: Props) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  isFocused;
 
   return (
     <header className={header}>
@@ -31,6 +35,8 @@ const Header = () => {
             placeholder={isFocused ? '검색어를 입력해 주세요.' : ''}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            value={keyword}
+            onChange={(e) => onSetKeyword(e.target.value)}
           />
           <button className={keyboardButton}>
             <div className={keyboard} />

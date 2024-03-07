@@ -13,6 +13,7 @@
     "panda:dev": "npx panda --watch"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
     "@pandacss/dev": "^0.28.0",
     "axios": "^1.6.7",
     "chart.js": "^4.4.1",

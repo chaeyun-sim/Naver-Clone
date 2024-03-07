@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import { css } from '../../../styled-system/css';
 import usePriceSeperator from '../../hooks/usePriceSeperator';
+import { imageAnimation } from '../../styles/imageAnimation';
 
 interface Props {
   price: string;
@@ -13,7 +15,7 @@ const OnePlusDealCard = ({ image, title, url, price }: Props) => {
 
   return (
     <a href={url}>
-      <div className={container}>
+      <div className={classNames(container, imageAnimation)}>
         <div className={imageBox}>
           <div className={costBox}>
             <div className={plus}>
@@ -44,13 +46,6 @@ const container = css({
   width: '18rem',
   height: '18.9rem',
   cursor: 'pointer',
-  '& img': {
-    transition: 'transform 0.3s ease-in-out',
-  },
-  '&:hover img': {
-    transform: 'scale(1.1)',
-    transition: 'transform 0.3s ease-in-out',
-  },
 });
 
 const imageBox = css({

@@ -15,12 +15,11 @@ export default Layout;
 
 const container = css({
   width: '134rem',
-  height: '100vh',
+  height: '100%',
   margin: '0 auto',
 });
 
 const content = css({
-  minHeight: '100vh',
+  minHeight: '100%',
   flexGrow: 1,
-  margin: '0 3rem',
 });

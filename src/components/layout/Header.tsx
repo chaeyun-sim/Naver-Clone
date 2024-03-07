@@ -56,7 +56,7 @@ export default Header;
 
 const header = css({
   width: '100%',
-  paddingTop: '1.2rem',
+  padding: '1.2rem 3rem 0 3rem',
 });
 
 const top = css({

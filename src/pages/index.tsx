@@ -34,6 +34,7 @@ const main = css({
   gap: '3rem',
   marginBottom: '6rem',
   marginTop: '4.3rem',
+  padding: '0 3rem',
 });
 
 const sectionLeft = css({

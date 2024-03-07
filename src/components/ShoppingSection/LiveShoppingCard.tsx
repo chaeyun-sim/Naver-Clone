@@ -1,4 +1,6 @@
+import classNames from 'classnames';
 import { css } from '../../../styled-system/css';
+import { imageAnimation } from '../../styles/imageAnimation';
 
 interface Props {
   text: string;
@@ -9,7 +11,7 @@ interface Props {
 
 const LiveShoppingCard = ({ text, image, onClick, isSelected }: Props) => {
   return (
-    <div className={box} onClick={onClick}>
+    <div className={classNames(box, imageAnimation)} onClick={onClick}>
       <div className={item(isSelected)}>
         <div className={badge}>
           <div className={badgeText}>LIVE</div>
@@ -27,13 +29,6 @@ export default LiveShoppingCard;
 
 const box = css({
   cursor: 'pointer',
-  '& img': {
-    transition: 'transform 0.3s ease-in-out',
-  },
-  '&:hover img': {
-    transform: 'scale(1.1)',
-    transition: 'transform 0.3s ease-in-out',
-  },
 });
 
 const item = (selected: boolean) =>

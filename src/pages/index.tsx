@@ -3,19 +3,24 @@ import LeftSection from '../components/Home/LeftSection';
 import RightSection from '../components/Home/RightSection';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
+import Layout from '../components/layout/Layout';
 
 const Main = () => {
   return (
-    <div className={container}>
-      <Header />
-      <main className={main}>
-        <section className={sectionLeft}>
-          <LeftSection />
-        </section>
-        <section className={sectionRight}>
-          <RightSection />
-        </section>
-      </main>
+    <div>
+      <Layout>
+        <div className={container}>
+          <Header />
+          <main className={main}>
+            <section className={sectionLeft}>
+              <LeftSection />
+            </section>
+            <section className={sectionRight}>
+              <RightSection />
+            </section>
+          </main>
+        </div>
+      </Layout>
       <Footer />
     </div>
   );
@@ -34,6 +39,7 @@ const main = css({
   gap: '3rem',
   marginBottom: '6rem',
   marginTop: '4.3rem',
+  padding: '0 3rem',
 });
 
 const sectionLeft = css({

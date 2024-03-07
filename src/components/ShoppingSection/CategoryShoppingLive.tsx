@@ -4,6 +4,8 @@ import LiveShoppingCard from './LiveShoppingCard';
 import { CardData, cardData } from './constant/liveShoppingData';
 import { upcomingData } from './constant/upcomingData';
 import usePriceSeperator from '../../hooks/usePriceSeperator';
+import classNames from 'classnames';
+import { imageAnimation } from '../../styles/imageAnimation';
 
 interface Props {
   page: number;
@@ -77,7 +79,7 @@ const CategoryShoppingLive = ({ page }: Props) => {
       <div className={schedule}>
         <ul style={{ listStyle: 'none' }}>
           {upcomingData.map((data, index) => (
-            <li key={data.text} className={scheduleItem(index > 0)}>
+            <li key={data.text} className={classNames(scheduleItem(index > 0), imageAnimation)}>
               <a href={data.url} className={linkSchedule} />
               <div className={scheduleBox}>
                 <div className={scheduleImageBox}>
@@ -327,13 +329,6 @@ const scheduleItem = (isNotFirstLine: boolean) =>
     position: 'relative',
     borderRadius: '0.4rem',
     marginTop: isNotFirstLine ? '1.4rem' : 0,
-    '& img': {
-      transition: 'transform 0.3s ease-in-out',
-    },
-    '&:hover img': {
-      transform: 'scale(1.1)',
-      transition: 'transform 0.3s ease-in-out',
-    },
   });
 
 const linkSchedule = css({

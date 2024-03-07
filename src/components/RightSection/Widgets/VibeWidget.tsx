@@ -1,4 +1,6 @@
+import classNames from 'classnames';
 import { css } from '../../../../styled-system/css';
+import { imageAnimation } from '../../../styles/imageAnimation';
 
 const data = [
   {
@@ -33,7 +35,7 @@ const VibeWidget = () => {
       <div className={vibeInfo}>
         <ul style={{ display: 'flex' }}>
           {data.map((item) => (
-            <li key={item.text} className={listItem}>
+            <li key={item.text} className={classNames(listItem, imageAnimation)}>
               <a href={item.href} className={itemThumb}>
                 <span className={thumb}>
                   <span className={gradient}>
@@ -96,13 +98,6 @@ const listItem = css({
   width: '10.8rem',
   flexShrink: 0,
   marginLeft: '1.2rem',
-  '& img': {
-    transition: 'transform 0.1s ease-in-out',
-  },
-  '&:hover img': {
-    transform: 'scale(1.05)',
-    transition: 'transform 0.2s ease-in-out',
-  },
 });
 
 const itemThumb = css({

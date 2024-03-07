@@ -1,6 +1,8 @@
+import classNames from 'classnames';
 import { css } from '../../../styled-system/css';
 import { ImageCard } from '../LeftSection/News/Entertainment';
 import Dot from '../base/Dot';
+import { imageAnimation } from '../../styles/imageAnimation';
 
 interface Props {
   data: ImageCard;
@@ -16,7 +18,7 @@ const DefaultNewsCard = ({ data, hasMargin }: Props) => {
 
   return (
     <div className={container} style={{ marginTop: hasMargin ? '1.6rem' : 0 }}>
-      <div className={imageWrapper}>
+      <div className={classNames(imageWrapper, imageAnimation)}>
         <div className={imageBox}>
           {videoTime && (
             <div className={playBox}>
@@ -143,11 +145,4 @@ const playTime = css({
 const imageWrapper = css({
   position: 'relative',
   overflow: 'hidden',
-  '& img': {
-    transition: 'transform 0.3s ease-in-out',
-  },
-  '&:hover img': {
-    transform: 'scale(1.1)',
-    transition: 'transform 0.3s ease-in-out',
-  },
 });

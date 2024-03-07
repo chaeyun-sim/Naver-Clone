@@ -1,6 +1,8 @@
 import { css } from '../../../styled-system/css';
 import DOMPurify from 'dompurify';
 import { ShopItem } from './Shopping';
+import { imageAnimation } from '../../styles/imageAnimation';
+import classNames from 'classnames';
 
 interface Props {
   page: number;
@@ -17,7 +19,7 @@ const Items = ({ page, data }: Props) => {
           return (
             <li key={item.title} className={hotItem}>
               <a href={item.link}>
-                <div className={hotItemArea}>
+                <div className={classNames(hotItemArea, imageAnimation)}>
                   <span className={hotItemImageBox}>
                     <img src={item.image} className={hotItemImage} />
                   </span>
@@ -82,13 +84,6 @@ const hotItemArea = css({
   display: 'block',
   fontSize: '1.4rem',
   lineHeight: ' 1.7rem',
-  '& img': {
-    transition: 'transform 0.3s ease-in-out',
-  },
-  '&:hover img': {
-    transform: 'scale(1.1)',
-    transition: 'transform 0.3s ease-in-out',
-  },
 });
 
 const hotItemImageBox = css({

@@ -1,30 +1,7 @@
 import classNames from 'classnames';
 import { css } from '../../../styled-system/css';
 import { imageAnimation } from '../../styles/imageAnimation';
-
-const bannerData = [
-  {
-    href: 'https://blog.naver.com/premiumcontents/223347963859',
-    url: 'https://ssl.pstatic.net/melona/libs/1487/1487000/dc02ef30bafe43cf4a40_20240220102149369.png',
-    badge: '네이버 프리미엄콘텐츠',
-    title: '콘텐츠로 돈 벌 수 있을까',
-    desc: '프리미엄 스타 채널의\n주인공에 도전하세요',
-  },
-  {
-    href: 'https://happybean.naver.com/fundings/detail/F1252',
-    url: 'https://ssl.pstatic.net/melona/libs/1481/1481321/3c6a780bcad1b56f0d96_20240229151447588.jpg',
-    badge: '네이버 해피빈 펀딩',
-    title: '예민한 피부에 추천해요',
-    desc: '흡수력과 통기성까지!\n친환경 소창 타올 세트',
-  },
-  {
-    href: 'https://mkt.naver.com/p1/jrschool',
-    url: 'https://ssl.pstatic.net/melona/libs/1479/1479913/77c890a43f0f2d0ffb57_20240228161944893.jpg',
-    badge: '네이버 커넥트재단',
-    title: '새학기, 사회성이 걱정이라면',
-    desc: '소아정신과 천근가 교수와 만든\n쥬니버스쿨에서 무료로 학습해요',
-  },
-];
+import { bannerData, servicesData } from '../../constants/footer';
 
 const Footer = () => {
   return (
@@ -52,8 +29,58 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className={noticeArea}>footer-middle</div>
-        <div className={asideArea}>footer-bottom</div>
+        <div className={noticeArea}>
+          <div className={noticeBox}>
+            <h3 className={noticeTitle}>
+              <a target="_blank">공지사항</a>
+            </h3>
+          </div>
+          <a className={linkAll}>서비스 전체보기</a>
+        </div>
+        <div className={asideArea}>
+          <div className={partnerBoxWrap}>
+            <div className={partnerBox(true)}>
+              <h3 className={boxTitle}>Partners</h3>
+              {[
+                '프로젝트 꽃',
+                '네이버 비즈니스',
+                '네이버 비즈니스 스쿨',
+                '네이버 광고',
+                '스토어 개설',
+                '지역업체 등록',
+                '엑스퍼트 등록',
+              ].map((text, index) => (
+                <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
+              ))}
+            </div>
+            <div className={partnerBox(false)}>
+              <h3 className={boxTitle}>Developers</h3>
+              {[
+                '네이버 개발자 센터',
+                '오픈 API',
+                '오픈소스',
+                '네이버 D2',
+                '네이버 D2SF',
+                '네이버 랩스',
+              ].map((text, index) => (
+                <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
+              ))}
+            </div>
+          </div>
+          <div className={serviceBoxWrap}>
+            {servicesData.map((item, index) => (
+              <div className={serviceBox(!index)}>
+                <a className={serviceLogo}>
+                  <img src={item.image} width={48} height={48} />
+                </a>
+                <div className={serviceInfo}>
+                  <strong className={classNames(textBox, serviceTitle)}>{item.title}</strong>
+                  <a className={classNames(textBox, serviceDesc)}>{item.desc}</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className={corpArea}>footer-corp</div>
       </div>
     </footer>
@@ -174,10 +201,129 @@ const desc = (isFirstText: boolean) =>
 
 const noticeArea = css({
   height: '5.9rem',
+  borderBottom: '1px solid #EBEBEB',
+  overflow: 'hidden',
+  padding: '2.1rem 0',
+  lineHeight: '1.7rem',
+});
+
+const noticeBox = css({
+  float: 'left',
+  display: 'block',
+});
+
+const linkAll = css({
+  float: 'right',
+  fontWeight: '900',
+  textDecoration: 'none!important',
+  fontSize: '1.35rem',
+  '&::after': {
+    content: '""',
+    display: 'inline-block',
+    backgroundImage: 'url(https://pm.pstatic.net/resources/asset/sp_main.ae81c9d5.png)',
+    backgroundSize: '44.4rem 43.4rem',
+    backgroundPosition: '-32.3rem -22.3rem',
+    backgroundRepeat: 'no-repeat',
+    width: '0.8rem',
+    height: '1.2rem',
+    margin: '0.3rem 0 0 1rem',
+    verticalAlign: 'top',
+  },
+});
+
+const noticeTitle = css({
+  fontSize: '1.35rem',
+  float: 'left',
+  marginRight: '1.1rem',
+  cursor: 'pointer',
+  fontWeight: '900',
 });
 
 const asideArea = css({
   height: '9rem',
+  borderBottom: '1px solid #EBEBEB',
+  overflow: 'hidden',
+});
+
+const partnerBoxWrap = css({
+  float: 'left',
+  padding: '2rem 0',
+});
+
+const partnerBox = (isFirstList: boolean) =>
+  css({
+    overflow: 'hidden',
+    lineHeight: '2rem',
+    marginTop: isFirstList ? 0 : '1rem',
+    fontSize: '1.35rem',
+  });
+
+const boxTitle = css({
+  float: 'left',
+  width: '8.7rem',
+  marginRight: '1rem',
+  fontWeight: '800',
+});
+
+const linkPartner = css({
+  color: '#404040',
+  float: 'left',
+  cursor: 'pointer',
+});
+
+const divider = css({
+  '&::before': {
+    content: '""',
+    display: 'inline-block',
+    width: '0.1rem',
+    height: '1.2rem',
+    backgroundColor: '#D3D5D7',
+    margin: '0 1rem',
+    verticalAlign: '-0.1rem',
+    color: '#404040',
+  },
+});
+
+const serviceBoxWrap = css({
+  float: 'right',
+  padding: '2.1rem 0',
+  '&::after': {
+    content: '""',
+    display: 'table',
+    tableLayout: 'fixed',
+    clear: 'both',
+  },
+});
+
+const serviceBox = (isNextItem: boolean) =>
+  css({
+    float: 'left',
+    display: 'block',
+    fontSize: '1.35rem',
+    marginLeft: isNextItem ? 0 : '3rem',
+  });
+
+const serviceLogo = css({
+  marginLeft: '1.1rem',
+  float: 'right',
+});
+
+const serviceInfo = css({
+  overflow: 'hidden',
+  display: 'block',
+});
+
+const serviceTitle = css({
+  display: 'block',
+  paddingTop: '0.5rem',
+  fontWeight: '900',
+});
+
+const serviceDesc = css({
+  display: 'block',
+  paddingTop: '0.5rem',
+  textDecoration: 'none!important',
+  color: '#404040',
 });
 
 const corpArea = css({

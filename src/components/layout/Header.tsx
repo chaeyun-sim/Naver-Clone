@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { css } from '../../../styled-system/css';
 import { services } from '../../constants/services';
 import ServiceBox from '../base/ServiceBox';
+import SearchBox from '../base/SearchBox';
 
 interface Props {
   keyword: string;
@@ -13,7 +14,7 @@ const Header = ({ keyword, onSetKeyword }: Props) => {
 
   return (
     <header className={header}>
-      <div className={top}>
+      <div className={top} onClick={() => setIsFocused(false)}>
         <div className={items}>
           <button className={menu} />
           <button className={naverPay} />
@@ -26,28 +27,30 @@ const Header = ({ keyword, onSetKeyword }: Props) => {
         </div>
       </div>
       <div className={searchBox}>
-        <div className={inputbox}>
-          <div className={naverWrapper}>
-            <div className={naverIcon} />
-          </div>
-          <input
-            className={input}
-            placeholder={isFocused ? '검색어를 입력해 주세요.' : ''}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            value={keyword}
-            onChange={(e) => onSetKeyword(e.target.value)}
-          />
-          <button className={keyboardButton}>
-            <div className={keyboard} />
-          </button>
-          <button className={moreInfoButton}>
-            <div className={moreInfo} />
-          </button>
-          <div className={searchWrapper}>
-            <div className={searchIcon} />
+        <div className={inputbox(isFocused)}>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div className={naverWrapper}>
+              <div className={naverIcon} />
+            </div>
+            <input
+              className={input}
+              placeholder={isFocused ? '검색어를 입력해 주세요.' : ''}
+              value={keyword}
+              onChange={(e) => onSetKeyword(e.target.value)}
+              onClick={() => setIsFocused(true)}
+            />
+            <button className={keyboardButton}>
+              <div className={keyboard} />
+            </button>
+            <button className={moreInfoButton}>
+              <div className={moreInfo} />
+            </button>
+            <div className={searchWrapper}>
+              <div className={searchIcon} />
+            </div>
           </div>
         </div>
+        {isFocused && <SearchBox onSetFocus={setIsFocused} />}
         <div className={serviceList}>
           {Object.keys(services).map((key) => (
             <ServiceBox key={key} icon={() => <div style={{ ...services[key] }} />} name={key} />
@@ -130,21 +133,23 @@ const searchBox = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  position: 'relative',
 });
 
-const inputbox = css({
-  width: '70.8rem',
-  height: '6rem',
-  borderRadius: '3.3rem',
-  border: '0.1rem solid #03C75A',
-  overflow: 'hidden',
-  marginTop: '0.1rem',
-  display: 'flex',
-  flexDirection: 'row',
-  '&:hover': {
-    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.13)',
-  },
-});
+const inputbox = (isFocused: boolean) =>
+  css({
+    width: '70.8rem',
+    height: '6rem',
+    borderRadius: isFocused ? '1.6rem 1.6rem 0 0 ' : '3.3rem',
+    border: isFocused ? 'none' : '0.1rem solid #03C75A',
+    overflow: 'hidden',
+    marginTop: '0.1rem',
+    position: 'relative',
+    boxShadow: isFocused ? '0 4px 8px 0 rgba(0,0,0,.13)' : 'none',
+    '&:hover': {
+      boxShadow: '0 4px 8px 0 rgba(0,0,0,0.13)',
+    },
+  });
 
 const input = css({
   width: '48rem',

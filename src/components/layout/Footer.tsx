@@ -81,7 +81,29 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className={corpArea}>footer-corp</div>
+        <div className={corpArea}>
+          <ul className={listCorp}>
+            {[
+              '회사소개',
+              '인재채용',
+              '제휴제안',
+              '이용약관',
+              '개인정보처리방침',
+              '청소년보호정책',
+              '네이버 정책',
+              '고객센터',
+            ].map((text, index) => (
+              <li className={!index ? corpItem : classNames(corpItem, divider)}>
+                <a>
+                  {text === '개인정보처리방침' ? <strong className={emp}>{text}</strong> : text}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <address className={addr}>
+            <a target="_blank">ⓒ NAVER Corp.</a>
+          </address>
+        </div>
       </div>
     </footer>
   );
@@ -217,6 +239,7 @@ const linkAll = css({
   fontWeight: '900',
   textDecoration: 'none!important',
   fontSize: '1.35rem',
+  cursor: 'pointer',
   '&::after': {
     content: '""',
     display: 'inline-block',
@@ -306,6 +329,7 @@ const serviceBox = (isNextItem: boolean) =>
 const serviceLogo = css({
   marginLeft: '1.1rem',
   float: 'right',
+  cursor: 'pointer',
 });
 
 const serviceInfo = css({
@@ -329,4 +353,42 @@ const serviceDesc = css({
 const corpArea = css({
   height: '4rem',
   paddingTop: '2rem',
+  width: '128rem',
+  margin: '0 auto',
+  lineHeight: '2rem',
+  textAlign: 'center',
+  '&::after': {
+    content: '""',
+    display: 'table',
+    tableLayout: 'fixed',
+    clear: 'both',
+  },
+});
+
+const listCorp = css({
+  overflow: 'hidden',
+  display: 'inline-block',
+  marginRight: '1.7rem',
+  verticalAlign: 'top',
+  listStyle: 'none',
+});
+
+const addr = css({
+  display: 'inline-block',
+  verticalAlign: 'top',
+  fontWeight: '900',
+  fontStyle: 'normal',
+});
+
+const corpItem = css({
+  color: '#404040',
+  display: 'inline-block',
+  lineHeight: '2rem',
+  verticalAlign: 'top',
+  cursor: 'pointer',
+  fontSize: '1.35rem',
+});
+
+const emp = css({
+  fontWeight: '900',
 });

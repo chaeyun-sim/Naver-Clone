@@ -5,104 +5,106 @@ import { bannerData, servicesData } from '../../constants/footer';
 
 const Footer = () => {
   return (
-    <footer className={footer}>
-      <div className={footerInner}>
-        <div className={bannerArea}>
-          {bannerData.map((item) => (
-            <div key={item.title} className={bannerWrapper}>
-              <div className={classNames(innerWrapper, imageAnimation)}>
-                <a href={item.href} className={wrap} target="_blank">
-                  <div className={image}>
-                    <img src={item.url} alt={item.title} width={'100%'} height={'100%'} />
-                  </div>
-                  <div className={content}>
-                    <strong className={classNames(badge, textBox)}>{item.badge}</strong>
-                    <strong className={classNames(title, textBox)}>{item.title}</strong>
-                    {item.desc.split('\n').map((text, index) => (
-                      <strong key={text} className={classNames(desc(index === 0), textBox)}>
-                        {text}
-                      </strong>
-                    ))}
-                  </div>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className={noticeArea}>
-          <div className={noticeBox}>
-            <h3 className={noticeTitle}>
-              <a target="_blank">공지사항</a>
-            </h3>
-          </div>
-          <a className={linkAll}>서비스 전체보기</a>
-        </div>
-        <div className={asideArea}>
-          <div className={partnerBoxWrap}>
-            <div className={partnerBox(true)}>
-              <h3 className={boxTitle}>Partners</h3>
-              {[
-                '프로젝트 꽃',
-                '네이버 비즈니스',
-                '네이버 비즈니스 스쿨',
-                '네이버 광고',
-                '스토어 개설',
-                '지역업체 등록',
-                '엑스퍼트 등록',
-              ].map((text, index) => (
-                <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
-              ))}
-            </div>
-            <div className={partnerBox(false)}>
-              <h3 className={boxTitle}>Developers</h3>
-              {[
-                '네이버 개발자 센터',
-                '오픈 API',
-                '오픈소스',
-                '네이버 D2',
-                '네이버 D2SF',
-                '네이버 랩스',
-              ].map((text, index) => (
-                <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
-              ))}
-            </div>
-          </div>
-          <div className={serviceBoxWrap}>
-            {servicesData.map((item, index) => (
-              <div className={serviceBox(!index)}>
-                <a className={serviceLogo}>
-                  <img src={item.image} width={48} height={48} />
-                </a>
-                <div className={serviceInfo}>
-                  <strong className={classNames(textBox, serviceTitle)}>{item.title}</strong>
-                  <a className={classNames(textBox, serviceDesc)}>{item.desc}</a>
+    <footer className={container}>
+      <div className={footer}>
+        <div className={footerInner}>
+          <div className={bannerArea}>
+            {bannerData.map((item) => (
+              <div key={item.title} className={bannerWrapper}>
+                <div className={classNames(innerWrapper, imageAnimation)}>
+                  <a href={item.href} className={wrap} target="_blank">
+                    <div className={image}>
+                      <img src={item.url} alt={item.title} width={'100%'} height={'100%'} />
+                    </div>
+                    <div className={content}>
+                      <strong className={classNames(badge, textBox)}>{item.badge}</strong>
+                      <strong className={classNames(title, textBox)}>{item.title}</strong>
+                      {item.desc.split('\n').map((text, index) => (
+                        <strong key={text} className={classNames(desc(index === 0), textBox)}>
+                          {text}
+                        </strong>
+                      ))}
+                    </div>
+                  </a>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-        <div className={corpArea}>
-          <ul className={listCorp}>
-            {[
-              '회사소개',
-              '인재채용',
-              '제휴제안',
-              '이용약관',
-              '개인정보처리방침',
-              '청소년보호정책',
-              '네이버 정책',
-              '고객센터',
-            ].map((text, index) => (
-              <li className={!index ? corpItem : classNames(corpItem, divider)}>
-                <a>
-                  {text === '개인정보처리방침' ? <strong className={emp}>{text}</strong> : text}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <address className={addr}>
-            <a target="_blank">ⓒ NAVER Corp.</a>
-          </address>
+          <div className={noticeArea}>
+            <div className={noticeBox}>
+              <h3 className={noticeTitle}>
+                <a target="_blank">공지사항</a>
+              </h3>
+            </div>
+            <a className={linkAll}>서비스 전체보기</a>
+          </div>
+          <div className={asideArea}>
+            <div className={partnerBoxWrap}>
+              <div className={partnerBox(true)}>
+                <h3 className={boxTitle}>Partners</h3>
+                {[
+                  '프로젝트 꽃',
+                  '네이버 비즈니스',
+                  '네이버 비즈니스 스쿨',
+                  '네이버 광고',
+                  '스토어 개설',
+                  '지역업체 등록',
+                  '엑스퍼트 등록',
+                ].map((text, index) => (
+                  <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
+                ))}
+              </div>
+              <div className={partnerBox(false)}>
+                <h3 className={boxTitle}>Developers</h3>
+                {[
+                  '네이버 개발자 센터',
+                  '오픈 API',
+                  '오픈소스',
+                  '네이버 D2',
+                  '네이버 D2SF',
+                  '네이버 랩스',
+                ].map((text, index) => (
+                  <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
+                ))}
+              </div>
+            </div>
+            <div className={serviceBoxWrap}>
+              {servicesData.map((item, index) => (
+                <div className={serviceBox(!index)}>
+                  <a className={serviceLogo}>
+                    <img src={item.image} width={48} height={48} />
+                  </a>
+                  <div className={serviceInfo}>
+                    <strong className={classNames(textBox, serviceTitle)}>{item.title}</strong>
+                    <a className={classNames(textBox, serviceDesc)}>{item.desc}</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={corpArea}>
+            <ul className={listCorp}>
+              {[
+                '회사소개',
+                '인재채용',
+                '제휴제안',
+                '이용약관',
+                '개인정보처리방침',
+                '청소년보호정책',
+                '네이버 정책',
+                '고객센터',
+              ].map((text, index) => (
+                <li className={!index ? corpItem : classNames(corpItem, divider)}>
+                  <a>
+                    {text === '개인정보처리방침' ? <strong className={emp}>{text}</strong> : text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <address className={addr}>
+              <a target="_blank">ⓒ NAVER Corp.</a>
+            </address>
+          </div>
         </div>
       </div>
     </footer>
@@ -111,16 +113,22 @@ const Footer = () => {
 
 export default Footer;
 
+const container = css({
+  width: '100%',
+  height: '100%',
+  minWidth: '134rem',
+});
+
 const footer = css({
-  height: '43rem',
+  width: '100%',
   borderTop: '1px solid #EBEBEB',
   backgroundColor: '#F5F6F7',
 });
 
 const footerInner = css({
-  width: '128rem',
+  width: '134rem',
   margin: '0 auto',
-  paddingBottom: '7.8rem',
+  padding: '0 3rem 7.8rem 3rem',
   fontSize: '1.3rem',
 });
 

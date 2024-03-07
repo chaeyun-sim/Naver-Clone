@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/Layout';
 import Main from './pages';
 import FindId from './pages/Signup/FindId';
 import FindPassword from './pages/Signup/FindPassword';
@@ -14,9 +13,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Main />} />
-          </Route>
+          <Route index element={<Main />} />
           <Route path="/user2/help/idInquiry" element={<FindId />} />
           <Route path="/user2/help/pwInquiry" element={<FindPassword />} />
           <Route path="/user2/join/agree" element={<CheckPermission />} />

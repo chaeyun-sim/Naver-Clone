@@ -1,12 +1,9 @@
-import { Outlet } from 'react-router-dom';
 import { css } from '../../../styled-system/css';
 
-const Layout = () => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={container}>
-      <div className={content}>
-        <Outlet />
-      </div>
+      <div className={content}>{children}</div>
     </div>
   );
 };

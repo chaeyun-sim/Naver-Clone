@@ -51,7 +51,9 @@ const Footer = () => {
                   '지역업체 등록',
                   '엑스퍼트 등록',
                 ].map((text, index) => (
-                  <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
+                  <a key={text} className={!index ? linkPartner : classNames(linkPartner, divider)}>
+                    {text}
+                  </a>
                 ))}
               </div>
               <div className={partnerBox(false)}>
@@ -64,13 +66,15 @@ const Footer = () => {
                   '네이버 D2SF',
                   '네이버 랩스',
                 ].map((text, index) => (
-                  <a className={!index ? linkPartner : classNames(linkPartner, divider)}>{text}</a>
+                  <a key={text} className={!index ? linkPartner : classNames(linkPartner, divider)}>
+                    {text}
+                  </a>
                 ))}
               </div>
             </div>
             <div className={serviceBoxWrap}>
               {servicesData.map((item, index) => (
-                <div className={serviceBox(!index)}>
+                <div key={item.title} className={serviceBox(!index)}>
                   <a className={serviceLogo}>
                     <img src={item.image} width={48} height={48} />
                   </a>
@@ -94,7 +98,7 @@ const Footer = () => {
                 '네이버 정책',
                 '고객센터',
               ].map((text, index) => (
-                <li className={!index ? corpItem : classNames(corpItem, divider)}>
+                <li key={text} className={!index ? corpItem : classNames(corpItem, divider)}>
                   <a>
                     {text === '개인정보처리방침' ? <strong className={emp}>{text}</strong> : text}
                   </a>

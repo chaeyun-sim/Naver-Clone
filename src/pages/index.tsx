@@ -10,6 +10,7 @@ import TopSearchBar from '../components/base/TopSearchBar';
 const Main = () => {
   const [show, setShow] = useState(false);
   const [keyword, setKeyword] = useState('');
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
@@ -31,9 +32,18 @@ const Main = () => {
     };
   }, []);
 
+  useEffect(() => {
+    function handleResize() {
+      setScreenWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div>
-      {show && <TopSearchBar keyword={keyword} onSetKeyword={setKeyword} />}
+      {show && screenWidth >= 1500 && <TopSearchBar keyword={keyword} onSetKeyword={setKeyword} />}
       <Layout>
         <div className={container}>
           <Header keyword={keyword} onSetKeyword={setKeyword} />

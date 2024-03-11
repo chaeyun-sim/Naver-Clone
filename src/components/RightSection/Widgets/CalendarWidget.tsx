@@ -107,6 +107,11 @@ const CalendarWidget = () => {
                   </span>
                 </li>
               ))}
+              {!currentHoliday.length && (
+                <li className={infoItem}>
+                  <span className={infoItemText}>일정이 없습니다.</span>
+                </li>
+              )}
               {lock && (
                 <li className={holiday}>
                   <span className={itemText}>
@@ -293,6 +298,16 @@ const itemNumber = css({
   paddingLeft: '0.4rem',
   fontWeight: 'bold',
   color: '#9155E5',
+});
+
+const infoItem = css({
+  display: 'flex',
+  lineHeight: '2rem',
+});
+
+const infoItemText = css({
+  color: '#606060',
+  textDecoration: 'none!important',
 });
 
 const calendarTable = css({
